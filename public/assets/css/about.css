@@ -1,0 +1,70 @@
+/* Animasi Fade In */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Hover Effect for Button */
+.btn-custom {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-5px);
+    background-color: #0056b3;
+}
+
+/* Image Styling */
+.about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s forwards;
+}
+
+/* Container Styling */
+.about-content {
+    text-align: center;
+    padding: 30px;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Section Background */
+.about-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content h2 {
+        font-size: 2rem;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+    }
+
+    .about-image {
+        width: 80%;
+        margin: 0 auto;
+    }
+}

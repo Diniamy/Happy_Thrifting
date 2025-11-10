@@ -1,0 +1,868 @@
+  PROPOSAL SKRIPSI
+PENERAPAN PRINSIP DESAIN SOLID DALAM PENGEMBANGAN APLIKASI HAPPY THRIFTING BERBASIS WEB
+
+
+
+
+OLEH:
+DINI AMY NARTI
+6304221470
+
+PROGRAM STUDI SARJANA TERAPAN
+ REKAYASA PERANGKAT LUNAK
+JURUSAN TEKNIK INFORMATIKA
+POLITEKNIK NEGERI BENGKALIS
+2025
+
+
+
+HALAMAN PENGESAHAN
+PROPOSAL SKRIPSI
+PENERAPAN PRINSIP DESAIN SOLID DALAM PENGEMBANGAN APLIKASI HAPPY THRIFTING BERBASIS WEB
+Oleh :
+
+DINI AMY NARTI
+6304221470
+Telah diujikan dan dinyatakan memenuhi syarat untuk dilanjutkan menjadi skripsi pada tanggal (01-08-2025) oleh tim penguji Program Studi Sarjana Terapan Rekayasa Perangkat Lunak
+
+Pembimbing Utama
+
+
+
+
+
+Depandi Enda, S.ST., M.Kom.
+NIP : 199005222019031010	Bengkalis, 1-Agustus-2025 
+Anggota Tim Penguji 
+
+
+
+
+Muhammad Asep Subandri, M.Kom. 
+  NIP : 199212092022031006
+	Muhammad Ridho Nosa, S.ST., M.Kom
+NIK : 12002161
+
+
+Mengetahui,
+Ketua Program Studi
+Sarjana Terapan Rekayasa Perangkat Lunak
+
+
+
+Fajri Profesio Putra, S.Kom, M.Cs.
+NIP : 198805072015041003
+
+KATA PENGANTAR
+
+Assalamu'alaikum Wr. Wb
+ 	Puji syukur kehadirat Allah SWT atas segala rahmat dan karunia-Nya sehingga penulis dapat menyelesaikan proposal skripsi yang berjudul " Penerapan Prinsip Desain SOLID Dalam Pengembangan Aplikasi Happy Thrifting Berbasis Web". Proposal ini disusun sebagai salah satu syarat untuk menyelesaikan pendidikan pada program studi Rekayasa Perangkat Lunak pada Politeknik Negeri Bengkalis.
+ 	Penulisan proposal skripsi ini tidak lepas dari bantuan, bimbingan, dan dukungan berbagai pihak. Oleh karena itu, penulis ingin menyampaikan rasa terima kasih yang sebesar-besarnya kepada:
+1.Bapak Johny Custer, S.T.,MT sebagai Direktur Politeknik Negeri Bengkalis.
+2.Bapak Armada, S.T.,MT sebagai Wakil Direktur I Politeknik Negeri Bengkalis.
+3.Bapak Kasmawi, M.Kom sebagai Ketua Jurusan Teknik Informatika Politeknik Negeri Bengkalis.
+4.Bapak Fajri Profesio Putra, M.Cs sebagai Ketua Program Studi Sarjana Terapan Rekayasa Perangkat Lunak Politeknik Negeri Bengkalis.
+5.Bapak Depandi Enda, M.Kom sebagai dosen pembimbing yang selalu memberikan arahan dalam penyelesaian proposal skripsi ini.
+6.Bapak/ibu Dosen Program Studi Rekayasa Perangkat Lunak, yang telah memberikan dukungan, bantuan, dan kebersamaan yang berarti selama proses penulisan proposal ini.
+Penulis menyadari bahwa dalam penyusunan proposal skripsi ini masih jauh dari sempurna, baik dari segi susunan, bahasa dan penulisan. Oleh karena  itu, penulis sangat mengharapkan kritik dan saran yang membangun untuk menjadi referensi bagi penulis dimasa yang akan datang. Semoga proposal skripsi ini dapat bermanfaat bagi penulis dan pembaca, lebih khususnya yang berkenaan tentang ilmu teknologi dan Infromasi.
+Wassalamu’alaikum Wr. Wb
+
+
+DAFTAR ISI
+
+HALAMAN PENGESAHAN	i
+KATA PENGANTAR	ii
+DAFTAR ISI	iii
+DAFTAR TABEL	v
+DAFTAR GAMBAR	vi
+BAB I	1
+PENDAHULUAN	1
+1.1	Latar Belakang	1
+1.2	Hipotesis Awal	2
+1.3	Rumusan Masalah	2
+1.4	Tujuan Penelitian	2
+1.5	Manfaat Penelitian	2
+BAB II	3
+KAJIAN TERDAHULU	3
+2.1	Kajian Terdahulu	3
+2.2	Landasan Teori	16
+2.2.1	Prinsip SOLID	16
+2.2.2	Aplikasi Happy Thrifting	19
+BAB III	20
+METODOLOGI PENELITIAN	20
+3.1	Data dan Alat Penelitian	20
+3.1.1	Data Penelitian	20
+3.1.2	Alat Penelitian	23
+3.2	Prosedur Penelitian	23
+3.3	Analisa Kebutuhan	29
+3.3.1	Kebutuhan Fungsional	29
+3.3.2	Kebutuhan non fungsional	30
+3.4	Perancangan	30
+3.4.1.	Analisis Sistem Yang Sedang Berjalan	30
+3.4.2.	Sistem Di Usulkan	31
+3.4.3.	Use Case Diagram	31
+3.4.4.	Perancangan Antar Muka	32
+3.4.5.	Evaluasi Penerapan Prinsip SOLID	35
+BAB VI	39
+PENUTUP	39
+4.1	Jadwal Penelitian	39
+4.2	Rencana Anggaran Biaya	40
+DAFTAR PUSTAKA	41
+
+
+
+DAFTAR TABEL
+Tabel 2. 1 Tabel Perbandingan	12
+Tabel 4. 1 Jadwal Penelitian	39
+Tabel 4. 2 Rencana Anggaran Biaya	40
+Tabel 3. 1 Hasil Evaluasi Kualitas Kode Menggunakan Laravel Insights	37
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DAFTAR GAMBAR
+Gambar 2. 1 SOLID Principle	16
+Gambar 3. 1 Gambar Prosedur Penelitian	24
+Gambar 3. 2 Use Case Diagram	31
+Gambar 3. 3 Struktur Sebelum Menerapkan Prinsip SOLID	32
+Gambar 3. 4 Struktur Setelah Menerapkan Prinsip SOLID	33
+Gambar 3. 5 Halaman Beranda	34
+Gambar 3. 6 Halaman Produk	34
+Gambar 3. 7 Halaman Keranjang	35
+Gambar 3. 8 Hasil Evaluasi Kode Menggunakan Laravel Insights Sebelum Refaktorisasi	36
+Gambar 3. 9 Hasil Evaluasi Kode Menggunakan Laravel Insights Setelah Refaktorisasi	37
+
+
+BAB I
+PENDAHULUAN
+1.1Latar Belakang
+Seiring dengan berkembangnya era digital ini, perkembangan sistem perangkat lunak dituntut untuk memiliki kualitas yang baik, fleksibel dalam melakukan pengembangan, serta mudah dalam melakukan pemeliharaan. Namun, pada kenyataannya, masih banyak pengembang atau developer perangkat lunak yang meghasilkan kode program yang tidak terstruktur, sulit dibaca, serta menyulitkan proses pengembang lebih lanjut. Hal ini disebabkan oleh kurangnya pemahaman dan penerapan prinsip desain yang tepat dalam proses pengembang perangkat lunak.
+Salah satu solusi untuk mengatasi permasalahan tersebut adalah dengan menerapkan prinsip desain SOLID. Prinsip SOLID merupakan seperangkat pedoman dalam pemrograman berorientasi objek. Maka dengan menerapkan prinsip SOLID ini pengembang dapat membangun struktur kode yang bersih, terorganisir, dan mudah untuk diuji. Sehingga mampu meningkatkan efisiensi pemeliharaan serta kualitas perangkat lunak secara keseluruhan.[1]
+SOLID Principle pertama kali diperkenalkan oleh Robert C. Martin (Uncle Bob) sebagai panduan desain dalam pemrograman berorientasi objek. SOLID Principle ini memiliki lima prinsip utama yaitu Single Responsibility, Open/Closed, Liskov Subsitution, Interface Segregation, dan  Depedency Inversion bertujuan untuk membuat arsitektur perangkat lunak yang lebih tangguh terhadap perubahan, serta memudahkan kolaborasi dalam melakukan pengembangan. Penerapan prinsip ini terbukti mampu meningkatkan keterbacaan, pengujian, dan pemeliharaan perangkat lunak, terutama pada project bersekala menengah hingga besar.
+Prinsip desain SOLID telah banyak digunakan dalam pengembangan perangkat lunak modren untuk menciptakan sistem yang modular dan fleksibel. Pendekatan ini memberikan panduan dalam penyusunan kode yang lebih terstruktur, sehingga memudahkan proses perawatan dan dan pengembangan lebih lanjut. Dengan menerapkan prinsip SOLID, perubahan pada sistem dapat diakomodasi tanpa menimbulkan ketergantungan kompleks antar komponen.[2]
+Penelitian ini mengambil studi kasus aplikasi Happy Thrifting, yaitu sebuah platfrom berbasis web yang menjual beli baju bekas secara online. Pada sistem sebelumnya, struktur kode yang diterapkan masih tidak tertata dengan baik, tidak modular, dan sulit untuk dipahami. Oleh karena itu, dalam penelitian ini dilakukan pengembangan ulang terhadap struktur kode dengan menggunakan prinsip desain SOLID agar dapat menghasilkan kode yang bersih, modular, dan mudah untuk diuji, serta meningkatkan keteraturan struktur kode, mempermudah proses pemeliharaan, serta mendukung pengembang sistem secara berkelanjutan.
+1.2Hipotesis Awal
+Berdasarkan latar belakang yang telah diuraikan, hipotesis awal dalam penelitian ini adalah:
+Penerapan prinsip desain SOLID dalam pengembangan aplikasi web Happy Thrifting dapat menghasilkan struktur kode yang lebih modular, terorganisir, mudah diuji, serta meningkatkan kualitas pemeliharaan dan fleksibilitas sistem secara keseluruhan
+1.3Rumusan Masalah
+Berdasarkan latar belakang di atas, maka rumusan masalah yang akan dibahas dalam penelitian ini adalah:
+1.Bagaimana penerapan prinsip SOLID dalam pengambangan aplikasi web Happy Thrifting?
+2.Bagaimana struktur sistem yang modular dan terorganisir dapat dibangun mengunakan prinsip-prinsip SOLID?
+1.4Tujuan Penelitian
+Adapun tujuan dari penelitian ini adalah sebagai berikut:
+1.Menerapkan prinsip SOLID dalam pengembangan aplikasi web Happy Thrifting untuk menciptakan sistem yang lebih modular dan maintainable.
+2.Merancang struktur kode yang terorganisir dan fleksibel dengan berpedoman pada prinsip SOLID.
+3.Mengevaluasi hasil penerapan SOLID dari sisi kemudahan pemeliharaan, keterbacaan kode, dan efisiensi pengembang.
+1.5Manfaat Penelitian
+Penelitian ini diharapkan memberikan manfaat sebagai berikut:
+1.Memberikan referensi praktis bagi pengembang perangkat lunak dalam menerapkan prinsip desain SOLID dalam pengembangan aplikasi web.
+2.Menambah wawasan akademik terkait pentingnya struktur kode yang baik dan modular dalam pengembangan perangkat lunak.
+BAB II
+KAJIAN TERDAHULU
+2.1Kajian Terdahulu
+Pada penelitian ini akan menjelaskan penelitian atau kajian terdahulu yang berkaitan sebagai referensi yang diambil penulis sebagai pembeda penelitian dan acuan dalam merancang dan menyelesaikan penelitian ini. Adanya kajian terdahulu untuk memudahkan penulis dalam menentukan langkah yang tepat dalam menyusun peneliti ini dari segi pemahaman teori maupun konsep.
+Penelitian terdahulu yang dilakukan oleh Naveen Chikkanayakanahalli (2024) Seorang Mobile Developer & Quality Engineer yang berdomisili di Texas, Amerika Serikat dengan judul “Prinsip Desain SOLID dalam Perangkat Lunak” Dalam pengembangan perangkat lunak kontemporer, memastikan kejelasan, fleksibilitas, dan kemudahan pemeliharaan tetap menjadi tantangan yang terus berlanjut, terutama seiring dengan meningkatnya kompleksitas sistem. Meskipun prinsip-prinsip SOLID menawarkan kerangka kerja yang kuat untuk mengatasi masalah ini, banyak pengembang yang kesulitan dalam memahami dan menerapkan pedoman ini secara efektif dalam skenario dunia nyata. Dikembangkan oleh Robert C. Martin, prinsip-prinsip ini Prinsip Single Responsibility, Open/Closed, Liskov Subsitution, Interface Segregation, dan Depedency Inversion adalah hal yang mendasar untuk pemrograman berorientasi objek, terutama dalam bahasa seperti C#. Dokumen ini membahas kesenjangan penelitian dengan menawarkan eksplorasi komprehensif dari setiap prinsip SOLID, memanfaatkan contoh C# praktis untuk menjelaskan penerapannya. Tujuannya adalah untuk memberikan wawasan yang dapat ditindaklanjuti kepada para pengembang dalam memanfaatkan prinsip-prinsip ini untuk mengatasi tantangan-tantangan umum. [1]
+Penelitian terdahulu yang dilakukan oleh Usman (2025) Universitas Multi Data Palembang dengan judul “Implementasi SOLID dan Optimalisasi Query pada Aplikasi Pencatatn Kemiskinan” Penelitian  ini  bertujuan  untuk  meningkatkan  efisiensi  dan  kinerja aplikasi   pencatatan   kemiskinan   di   Dinas   Komunikasi   dan   Informatika Kabupaten Musi Banyuasin melalui penerapan prinsip desain SOLID dan teknik optimalisasi query.   Dengan   pendekatan   kuasi-eksperimen,   penelitian   ini membandingkan  sistem  sebelum  dan  sesudah  dilakukan  refaktorisasi  kode. Hasil  analisis  menunjukkan  bahwa  penerapan  prinsip  SOLID  serta  teknik optimalisasi   menghasilkan   jumlah   source   code   yang   lebih   sedikit   dan rekomendasi kode. Aplikasi yang dihasilkan menjadi lebih modular, efisien, dan mudah dikelola. [2]
+Penelitian terdahulu yang dilakukan oleh Manalu Josua (2024) Universitas Multi Data Palembang dengan judul “Metode Clean Architecture Berdasarkan Prinsip Desain Solid Untuk Analisis Aplikasi Pencatatan Absensi Daring (Panda)” Aplikasi PANDA merupakan aplikasi berbasis android dengan bahasa Java yang dimiliki oleh Universitas Multi Data Palembang untuk melakukan absensi dosen dan karyawan. Aplikasi PANDA menjadi objek analisis berdasarkan prinsip desain SOLID dan Clean Architecture. Tujuan dari penelitian ini adalah menganalisis sejauh mana aplikasi PANDA mematuhi kaidah Clean Architecture dan prinsip desain SOLID serta melakukan refactoring pada source code aplikasi PANDA berdasarkan kaidah dan prinsip desain tersebut. Refactoring dilakukan pada tujuh class yang masih tidak sesuai dengan prinsip Single Responsibility dengan memindahkan function-function yang memiliki tanggung jawab yang sama ke dalam suatu class. Prinsip Interface Segregation diimplementasikan dengan menghapus function implementasi yang tidak diperlukan. Empat class yang tidak mematuhi prinsip Dependency Inversion disesuaikan dengan membuat ketergantungan pada class abstraksi dan menggunakan injeksi dependensi dengan Hilt. Konsep Clean Architecture juga telah diterapkan dengan membuat domain layer yang berisi entities yang telah dimodifikasi agar tidak terpengaruh oleh framework luar dan use case yang berisi business logic aplikasi sehingga presentation layer tidak bergantung secara langsung pada data layer melainkan bergantung kepada domain layer. Penerapan Clean Architecture dan prinsip desain SOLID menghasilkan jumlah source code yang lebih sedikit dan rekomendasi kode dari penelitian ini diharapkan dapat memudahkan developer dalam pemeliharaan dan pengembangan aplikasi PANDA ke depan. [3]
+Penelitian terdahulu yang dilakukan oleh Manalu (2024) Universitas Multi Data Palembang dengan judul “Refactor Aplikasi Absensi Berdasarkan Clean Architecture Dan Prinsip Desain SOLID” Aplikasi absensi dosen dan karyawan Universitas Multi Data Palembang dibangun dengan bahasa Java dan berbasis Android. Tujuan penelitian ini adalah untuk menganalisis kepatuhan aplikasi terhadap kaidah Clean Architecture dan prinsip desain SOLID, serta melakukan refactoring pada source code aplikasi berdasarkan kaidah dan prinsip tersebut. Refactoring dilakukan pada tujuh class yang tidak sesuai dengan prinsip Single Responsibility. Refactoring dilakukan dengan memecah function dengan tanggung jawab yang sama ke dalam suatu class, dan menghapus function implementasi yang tidak diperlukan agar mematuhi prinsip interface segregation. Empat class yang tidak mematuhi prinsip Dependency Inversion disesuaikan dengan membuat ketergantungan pada class abstraksi dan menggunakan injeksi dependensi dengan Hilt. Konsep Clean Architecture juga diterapkan dengan membuat domain layer yang berisi entities dan use case yang berisi business logic aplikasi. Hal ini membuat presentation layer tidak bergantung secara langsung pada data layer, melainkan bergantung kepada domain layer. Penerapan Clean Architecture dan prinsip desain SOLID menghasilkan jumlah source code yang lebih sedikit dan rekomendasi kode dari penelitian ini diharapkan dapat memudahkan developer dalam pemeliharaan aplikasi. [4]
+Penelitian terdahulu ini dilakukan oleh Ivan Yanakiev (2025) Universitas Groningen (NL), Belanda dengan judul “Menerapkan prinsip-prinsip SOLID untuk pemfaktoran ulang kode lama: Sebuah laporan pengalaman” Adanya utang teknis dalam sistem lama merupakan konsekuensi yang tak terelakkan dari pengembangan selama bertahun-tahun. Metrik memainkan peran penting dalam menginformasikan proses penentuan prioritas aktivitas pemeliharaan untuk mengurangi utang ini. Namun, penting untuk dicatat bahwa tidak semua metrik sama pentingnya atau tersedia di lingkungan industri yang sebenarnya. Makalah ini merangkum laporan pengalaman kegiatan refactoring yang dilakukan di perusahaan mitra Belanda, yang bertujuan untuk mengidentifikasi, memprioritaskan, dan membayar bagian dari utang teknis arsitektur yang terakumulasi dalam dua dekade pembangunan. Mengingat besarnya tugas refactoring, prioritas berbasis data diperlukan, dan berdasarkan dampak aktivitas pemeliharaan terhadap sistem dasar. Namun, metrik yang tersedia dari pemantauan sistem membentuk satu set yang terbatas, dan tidak selalu terfokus pada aspek arsitektural. Meskipun demikian, analisis dampak dilakukan dan menghasilkan pemilihan subset komponen yang membutuhkan pemeliharaan mendesak. Refactoring komponen yang teridentifikasi berpusat pada prinsip-prinsip desain SOLID yang terkenal, khususnya prinsip Dependency Inversion (DI). Selain itu, serangkaian tindakan berulang dibuat menjadi 'pola refactoring dan secara sistematis diterapkan pada lebih dari 5.000 file sumber, header, dan bahasa domain khusus. Pekerjaan ini, meskipun terbatas pada periode di mana kegiatan tersebut direncanakan, diterima dengan baik oleh kolaborator industri. Pola-pola ini telah terbukti sangat berharga dalam proses mempertahankan cakupan proyek yang begitu besar. Pendekatan berbasis data dan pola yang teridentifikasi telah membantu tim menavigasi ruang yang besar ini dan secara konsisten merefaktor isu-isu arsitektur serupa yang termasuk dalam kategori yang sama. [5]
+Penelitian terdahulu ini dilakukan oleh Bhaumik Tyagi (2022) Universitas Departemen Ilmu Komputer Dan Teknik Sharda dengan judul “Penilaian Eksperimental Tentang Pengaruh Prinsip Desain Yang SOLID Terhadap Kualitas Perangkat Lunak Menggunakan Analisis Metrik CKJM” Desain adalah salah satu segmen penting dari siklus hidup pengembangan perangkat lunak, yang secara langsung mempengaruhi seluruh siklus hidup proyek. Jika desain mahir, semua tahap lain dari siklus hidup pengembangan perangkat lunak seperti pengkodean, dukungan, dan pemeliharaan akan menjadi tidak merepotkan. Desain memiliki peran penting yang secara tepat mempengaruhi kinerja dan kualitas perangkat lunak. Saat ini, ranah Metodologi Agile telah mengarahkan pengembang untuk bersaing dengan tumpukan teknologi dan fitur terbaru di pasar. Meskipun demikian, jika tidak ada pedoman standar yang tersedia, akan sangat sulit bagi konsumen awam untuk menjunjung tinggi kualitas desain. Desain Perangkat Lunak dengan pola dan prinsip yang tepat dapat meningkatkan pemeliharaan perangkat lunak, penggunaan kembali, dan skalabilitas. Untuk mempertahankan standar desain perangkat lunak, beberapa prinsip diperkenalkan dengan mempertimbangkan konsep seperti Kohesi dan Kopling. Makalah penelitian ini menekankan pada pemeriksaan eksperimental untuk membuktikan instruksi prinsip-prinsip desain SOLID dengan menerapkan prinsip-prinsip desain pada prototipe yang berfungsi dan kemudian menilai prototipe tersebut menggunakan CKJM (Chidamber & Kemerer Java Metrics). [6]
+Penelitian terdahulu ini dilakukan oleh Laela (2023) STMIK IKMI Cirebon dengan judul “Perancangan Sistem Informasi Penjualan Thrifting Dikalangan Milenial Berbasis Web” Dalam dunia toko barang bekas, saya merupakan kegiatan pemasaran barang bekas secara online maupun offline, sebagian besar penjualan ini berkaitan dengan pemasaran barang bekas. Maraknya pemasaran barang bekas salah satunya adalah platform penjualan Squad 1994. Berdasarkan observasi yang telah dilakukan terkait dengan pemasaran yang digunakan pada platform Squad 1994, saat ini pemasaran masih dilakukan secara langsung dengan melakukan kegiatan bazar event promosi produk secara online melalui platform Instagram, sehingga dianggap belum sempurna sehingga harus digunakan. mekanisme pemasaran barang tidak berlaku. Sedangkan pemasaran yang dijual melalui platform Instagram dapat mengakibatkan kerugian, penipuan, konsumsi berlebihan karena pengguna tergiur untuk membeli barang hanya karena barang yang ditawarkan lebih murah. Selain itu, permasalahan pemasaran dengan menggunakan platform yang mencantumkan rekapitalisasi pendapatan setiap pembelian yang digunakan masih bersifat manual yang memicu beberapa kesalahan mengenai penjumlahan pendapatan. Dikarenakan banyaknya masalah penjualan thrifting Squad 1994 maka dibuatlah sistem informasi penjualan thrifting. Metode yang digunakan untuk membuat website ini berupa pengumpulan data yang meliputi metode wawancara dan perancangan sistem penjualan, sedangkan metode pembangunan perangkat lunak menggunakan pendekatan DSDM dengan metode agile yang melalui beberapa tahapan. Dalam menggunakan metode ini langkah yang harus diperhatikan adalah menganalisis masalah yang terjadi pada penjualan Squad 19994, langkah selanjutnya adalah melakukan analisis kebutuhan dalam pemasaran untuk membuat desain sistem informasi, kemudian mengimplementasikan atau mengembangkan pengujian perangkat lunak. Untuk pemrograman lagu menggunakan PHP, Codeigniter, Javascript, dan CSS. Menggunakan XAMPP sebagai databasenya. Reseasing ini memiliki beberapa tujuan antara lain meningkatkan efisiensi dalam proses penjualan, mempermudah transaksi, pengguna website yang bertanggung jawab memudahkan mendapatkan produk yang diinginkan dengan harga yang sangat bersahabat dan dapat diakses di berbagai media. Hasil perancangan sistem informasi ini dapat merubah pemasaran barang bekas melalui platform instagram dengan mempermudah mekanisme penjualan, pencarian produk brand ternama, selain itu dapat mencegah kesalahan pengiriman barang dan kesalahan input data thrifting Squad 1994 penjualan. [7]
+Penelitian terdahulu ini dilakukan oleh Faqih (2024) Sekolah Tinggi Teknologi Terpadu Nurul Fikri dengan judul “Perancangan Ui/Ux Mobile Thrifting Untuk Mengurangi Limbah Pakaian Bekas Menggunakan Metode Design Thinking” Penelitian ini bertujuan untuk mengeksplorasi perancangan UI/UX mobile thrifting untuk mengurangi limbah pakaian bekas menggunakan metode design thinking. Fokus utamanya adalah pada pengalaman pengguna (UI/UX), dengan harapan dapat merancang aplikasi yang menarik dan fungsional untuk mendorong partisipasi dalam kegiatan thrifting. Metodologi penelitian menggunakan design thinking terdiri dari define, ideasi, prototype, dan pengujian. Wawancara mendalam dan survei digunakan untuk memahami kebutuhan pengguna, menghasilkan beberapa konsep desain yang kemudian dikembangkan menjadi prototype. Uji coba oleh pengguna menyoroti fiturfitur seperti pencarian produk yang mudah, navigasi intuitif, dan fitur donasi pakaian yang jelas. Beberapa aspek yang perlu ditingkatkan termasuk alur registrasi dan informasi mengenai kondisi pakaian. Fitur flash sale dan donasi mendapat respons positif, meskipun donasi memerlukan segmentasi dan penjelasan yang lebih baik. Secara keseluruhan, aplikasi thrifting yang dikembangkan menunjukkan potensi besar dalam mengurangi limbah pakaian dengan menyediakan platform yang ramah pengguna dan fungsional. Hasil wawancara dengan tujuh pengguna menunjukkan bahwa aplikasi ini memiliki beberapa kelebihan, tetapi juga ada beberapa area yang perlu diperbaiki. Kelebihan yang disorot termasuk tampilan halaman utama yang bersih dan mudah dimengerti, navigasi yang sederhana dan user-friendly, serta fitur flash sale dan donasi yang menarik perhatian pengguna. [8]
+Penelitian terdahulu yang dilakukan oleh Sinatria (2023) Universitas Singaperbangsa Karawang dengan judul “Penerapan Clean Architecture Dalam Membangun Aplikasi Berbasis Mobile Dengan Framework Google Flutter” Saat membangun aplikasi berbasis mobile menggunakan Flutter, sebagian besar tersusun atas widget, yang merupakan kumpulan baris kode yang tersusun seperti pohon. Mengatur parent dari widget akan melakukan proses render ulang dari parent hingga child dari widget. Membangun aplikasi berbasis mobile dengan Flutter perlu menggunakan arsitektur yang tepat agar mudah beradaptasi atas perubahan yang terjadi. Saat melakukan perubahan, kemungkinan terjadi bug yang tidak disengaja selalu ada, efeknya menambah biaya risiko. Arsitektur yang tepat akan sangat mengurangi pengeluaran untuk melakukan pemeliharaan dan sangat mengurangi risiko kerusakan yang tidak disengaja. Oleh karenanya diperlukan Arsitektur yang tepat akan sangat mengurangi pengeluaran untuk melakukan pemeliharaan dan sangat mengurangi risiko kerusakan yang tidak disengaja. Penelitian ini bertujuan untuk menerapkan Clean Architecture dan SOLID Principle dalam membangun aplikasi berbasis mobile dengan menggunakan framework Google Flutter. Metode dalam penelitian ini menggunakan Agile with Scrum dan menggunakan framework Google Flutter. Hasilnya akan berupa sebuah kerangka dan penerapan dari setiap layer Clean Architecture dengan menerapkan SOLID Principle. [9]
+Penelitian terdahulu yang dilakukan oleh Nugroho (2024) Institut Teknologi Kalimantan dengan judul “Refactoring Aplikasi Xyz Menggunakan Pendekatan Clean Architecture”  Implementasi Clean Architecture dalam pengembangan aplikasi Android menggunakan bahasa pemrograman Kotlin, dengan fokus pada penerapan prinsip desain SOLID. Evaluasi dilakukan pada dampak Clean Architecture terhadap kompleksitas kode yang menunjukkan penurunan rata-rata nilai kompleksitas dari 1,5 menjadi 1,4. Penelitian juga menganalisis perubahan kinerja aplikasi sebelum dan setelah menerapkan Clean Architecture, dengan penekanan pada penggunaan CPU, memori dan waktu eksekusi, Metodologi penelitian mengikuti pendekatan waterfall untuk refactoring aplikasi XYZ. Hasil penelitian memberikan pemahaman mendalam tentang perubahan kode dalam implementasi Clean Architecture dalam pengembangan aplikasi XYZ. Kesimpulannya, penerapan Clean Architecture dapat mengurangi kompleksitas kode dan berpotensi meningkatkan kinerja aplikasi, memberikan landasan yang kuat untuk pengembangan perangkat lunak yang lebih efisien dan dapat dipelajari oleh peneliti di bidang ini.[10]
+Penelitian terdahulu yang dilakukan oleh Trodin Matilda (2021) Uppsala Universitet dengan judul “Menerapkan prinsip SOLID pada pustaka React JavaScript” React hingga tahun 2020 merupakan salah satu, jika bukan pustaka JavaScript terpopuler untuk mengembangkan aplikasi web dan seluler sejak dirilis pada tahun 2013. Karena pustaka ini masih sangat baru, masih banyak potensi yang belum tereksplorasi dalam cara kita menggunakan React dengan berbagai gaya pemrograman. Proyek ini bertujuan untuk mengeksplorasi React dari sudut pandang berorientasi objek, dengan menggunakan lima prinsip desain SOLID ke dalam aplikasi React. Prinsip-prinsip desain SOLID terutama merupakan praktik dalam pemrograman berorientasi objek dan telah lama digunakan dalam komunitas berorientasi objek untuk mendorong kode yang bersih dan dapat digunakan kembali, serta mudah dipelihara dan dikembangkan. Dengan menulis ulang aplikasi React yang sudah ada agar sesuai dengan prinsip-prinsip SOLID, proyek ini bertujuan untuk menganalisis apakah prinsip-prinsip tersebut membuat kode menjadi lebih baik, lebih buruk, atau berada di antara keduanya. Kode tersebut ditulis ulang dan dianalisis dari berbagai sudut pandang, dengan melihat nilai-nilai terukur dengan menggabungkan rangkaian metrik untuk pemrograman berorientasi objek, dan dengan melihat bagaimana kode tersebut telah meningkat dalam hal perluasan dan pemeliharaan dengan mencoba menambah dan menghapus fitur dari aplikasi React. Hasilnya menunjukkan bahwa aplikasi yang ditulis ulang menunjukkan peningkatan kualitas terukur secara umum dan juga potensi yang lebih baik dalam hal pemeliharaan dan perluasan. Hasilnya menunjukkan bahwa dengan menggabungkan prinsip SOLID kita dapat menggunakan pendekatan berorientasi objek saat mengembangkan React, dan bahkan dapat memberikan kode tingkat kualitas yang lebih tinggi.[11]
+Penelitian terdahulu yang dilakukan oleh Cabral Raphael (2024). PUC-Rio Brasil & Universitas Bari Italia dengan judul “Meneliti dampak prinsip desain SOLID terhadap pemahaman kode pembelajaran mesin” ] Menerapkan prinsip-prinsip desain telah lama diakui bermanfaat untuk pemahaman dan pemeliharaan dalam proyek perangkat lunak tradisional. Manfaat ini mungkin juga berlaku untuk proyek Pembelajaran Mesin (ML), yang melibatkan eksperimen berulang dengan data, model, dan algoritma. Namun, komponen ML sering dikembangkan oleh ilmuwan data dengan latar belakang pendidikan yang beragam, yang berpotensi menghasilkan kode yang tidak mematuhi praktik terbaik desain perangkat lunak. Tujuan Untuk lebih memahami fenomena ini, kami menyelidiki dampak prinsip-prinsip desain SOLID terhadap pemahaman kode ML. Metode Kami melakukan eksperimen terkontrol dengan tiga uji coba independen yang melibatkan 100 ilmuwan data. Kami merestrukturisasi kode ML industri nyata yang tidak menggunakan prinsip-prinsip SOLID. Dalam setiap uji coba, satu kelompok disajikan dengan kode ML asli, sementara yang lain disajikan dengan kode ML yang menggabungkan prinsipprinsip SOLID. Peserta dari kedua kelompok diminta untuk menganalisis kode dan mengisi kuesioner yang mencakup pertanyaan terbuka dan tertutup tentang pemahaman mereka. Hasil penelitian memberikan bukti signifikan secara statistik bahwa penerapan prinsip desain SOLID dapat meningkatkan pemahaman kode dalam ranah proyek ML. [12]
+
+
+Penelitian terdahulu yang dilakukan oleh Gopal Bhuvaneswari (2024). Sekolah Komputasi, Universitas Nebraska-Lincoln dengan judul “Mengajarkan Prinsip-Prinsip Desain Perangkat Lunak SOLID Menggunakan Instruksi Sebaya Sebuah Studi Percontohan” Dalam makalah ini kami mempelajari kemanjuran Peer Instruction (PI) sebagai pedagogi untuk mengajarkan prinsip-prinsip SOLID dalam desain perangkat lunak di kelas teknik perangkat lunak sarjana tahap muka. Desain perangkat lunak berbasis prinsip SOLID merupakan topik penting dalam membantu mahasiswa mempelajari praktik desain perangkat lunak berorientasi objek. Instruksi Sebaya (PI) adalah pendekatan pembelajaran aktif di mana mahasiswa berpartisipasi aktif dalam pembelajaran mereka sendiri dengan mendiskusikan pertanyaan bersama kelompok kecil dan kemudian membandingkan tanggapan mereka dengan tanggapan teman sekelas mereka. PI biasanya dimulai dengan kuliah singkat yang memberikan latar belakang, diikuti dengan mengajukan pertanyaan konsep format pilihan ganda. Beberapa studi tentang PI dalam konteks umum, tetapi sangat sedikit yang fokus pada bagaimana PI dapat membantu mahasiswa memahami prinsip-prinsip desain perangkat lunak. Dalam penelitian ini, kami memfokuskan pada mendalami peran pembenaran kebenaran bagi yang mempelajari prinsip-prinsip SOLID melalui pendekatan PI. Eksperimen kami melibatkan dua kelas mahasiswa teknik perangkat lunak tingkat awal, di mana satu kelas menggunakan PI dan satu kelas lainnya menggunakan kuliah tradisional. Hasil penelitian menunjukkan bahwa mahasiswa yang diajar menggunakan PI lebih memahami konsep prinsip SOLID dibandingkan dengan mahasiswa yang diajar menggunakan kuliah tradisional. Secara kognitif, PI membantu siswa dalam mengidentifikasi dan memahami prinsip-prinsip SOLID lebih efektif dibandingkan dengan kuliah biasa. Temuan ini menyarankan bahwa PI dapat menjadi metode pembelajaran yang lebih baik untuk meningkatkan pemahaman mahasiswa terhadap prinsip-prinsip desain perangkat lunak, khususnya SOLID, dibandingkan dengan pendekatan kuliah konvensional.[13]
+ Penelitian terdahulu yang dilakukan oleh Shrestha Jonesh. (2025) Universitas DePaul, Chicago, Illinois, Amerika Serikat dengan judul “Mengevaluasi Penerapan Prinsip SOLID dalam Arsitektur Kerangka Kerja AI Modern” Penelitian ini mengevaluasi sejauh mana AI modern kerangka kerja, khususnya TensorFlow dan scikit-learn, mematuhi prinsip-prinsip desain SOLID Tanggung Jawab Tunggal, Terbuka/Tertutup, Substitusi Liskov, Segregasi Antarmuka, dan Inversi Ketergantungan. Hasil penelitian menunjukkan bahwa desain kerangka kerja mengadopsi aspek-aspek tertentu dari prinsip-prinsip desain SOLID tetapi membuat trade-off yang disengaja untuk mengatasi kinerja, skalabilitas, dan sifat eksperimental pengembangan AI. TensorFlow berfokus pada performa dan skalabilitas, terkadang mengorbankan kepatuhan ketat terhadap prinsip-prinsip seperti Tanggung Jawab Tunggal dan Segregasi Antarmuka. Meskipun filosofi desain scikit-learn lebih sederhana, penelitian menemukan bahwa scikit-learn tetap berpegang teguh pada prinsip-prinsip SOLID, terutama dalam mendukung modularitas, pemeliharaan, dan konsistensi desain. Penelitian ini menekankan bahwa penerapan prinsip-prinsip SOLID dalam kerangka kerja AI memerlukan keseimbangan antara performa, skalabilitas, dan fleksibilitas. Secara keseluruhan, hasil penelitian ini memperlihatkan bahwa prinsip SOLID dapat berfungsi sebagai panduan desain yang berharga, namun implementasinya dalam kerangka kerja AI modern sering kali disesuaikan untuk memenuhi kebutuhan unik dari pengembangan kecerdasan buatan.[14]
+Penelitian terdahulu yang dilakukan oleh Wijaya Alfred Rajendra (2024). Program Studi Teknik Informatika Fakultas Sains dan Teknologi, UIN Maulana Malik Ibrahim, Jalan Gajayana 50, Malang dengan judul “Penggunaan Kecerdasan Buatan (AI) Berbasis Large Language Models (LLM) dalam Deteksi dan Refaktorisasi Kode agar Sesuai dengan Prinsip Desain SOLID” Penggunaan kecerdasan buatan (AI) berbasis Large Language Models (LLM), seperti GPT-4, GPT-3.5, dan Gemini, semakin umum dalam pengembangan perangkat lunak, terutama dalam mengidentifikasi dan merefaktor kode agar sesuai dengan prinsip desain SOLID. Studi ini menganalisis efektivitas dan akurasi AI dalam mendeteksi dan merefaktor kode agar mengikuti prinsip-prinsip tersebut. Kami menggunakan sampel kode dari mahasiswa Teknik Informatika semester dua di UIN Malang sebagai dataset. Analisis dilakukan dengan membandingkan hasil deteksi prinsip SOLID dari GPT-4, GPT-3.5, dan Gemini. Temuan menunjukkan bahwa Gemini adalah yang paling akurat dalam mengidentifikasi dan menerapkan prinsip SOLID, mencapai skor sempurna dibandingkan dengan GPT-4 dan GPT-3.5 yang memiliki tingkat akurasi lebih rendah.[15]
+
+
+
+
+
+Berikut merupakan tabel perbandingan penelitian terdahulu yang sudah dilakukan dengan penelitian yang penulis ajukan.
+Tabel 2. 1 Tabel Perbandingan
+No	Judul, Penelitian, Tahun	Hasil	Perbandingan
+1	Prinsip Desain SOLID dalam Rekayasa Perangkat Lunak. Naveen Chikkanayakanahalli (2024)	Hasil penelitian ini memberikan pemahaman praktis tentang penerapan prinsip SOLID menggunakan bahasa C#, serta membantu pengembang menerapkan prinsip tersebut secara efektif untuk menghasilkan kode yang modular, terstruktur, dan mudah dipelihara.	Memiliki kesamaan dalam fokus terhadap penerapan prinsip SOLID. Namun, penelitian ini lebih bersifat teoritis dengan pendekatan studi kasus menggunakan kode C#. Sementara itu, penelitian pada aplikasi Happy Thrifting lebih menekankan pada implementasi nyata dalam pengembangan aplikasi web, sehingga penerapannya lebih aplikatif dan langsung berdampak pada kualitas sistem yang dibangun.
+2	Metode Clean Architecture Berdasarkan Prinsip Desain Solid Untuk Analisis Aplikasi Pencatatan Absensi Daring (Panda). Manalu, Josua. (2024)	Hasil penelitian menunjukkan bahwa penerapan prinsip SOLID dan Clean Architecture pada aplikasi PANDA berhasil memperbaiki struktur kode, membuatnya lebih modular, efisien, dan mudah dipelihara.	Penelitian ini mirip karena menggabungkan prinsip SOLID dan Clean Architecture untuk membangun struktur kode yang baik. Bedanya, objek sistem yang dikembangkan adalah aplikasi absensi daring, sementara penelitian saya fokus pada aplikasi penjualan produk bekas berbasis web.
+3	Refactor Aplikasi Absensi Berdasarkan Clean Architecture dan Prinsip Desain SOLID. Manalu (2024)	Hasil Penerapan Clean Architecture dan prinsip desain SOLID menghasilkan jumlah source code yang lebih sedikit dan rekomendasi kode dari penelitian ini diharapkan dapat memudahkan developer dalam pemeliharaan aplikasi.	Sama-sama menitikberatkan pada efisiensi source code dan kemudahan pemeliharaan dengan prinsip SOLID. Namun, penelitian ini melakukan refactoring aplikasi lama, sedangkan penelitian saya membangun aplikasi dari awal dengan prinsip SOLID
+4	Menerapkan Prinsip-Prinsip SOLID Untuk Pemfaktoran Ulang Kode Lama: Sebuah Laporan Pengamlaman. Ivan Yanakiev (2025)	Hasil penelitian menunjukkan bahwa penerapan prinsip SOLID, khususnya Dependency Inversion, dan pola refactoring berbasis data berhasil memperbaiki struktur arsitektur sistem legacy secara konsisten dan memudahkan pemeliharaan proyek berskala besar.	Memiliki kesesuaian dalam penerapan prinsip SOLID pada aspek struktural aplikasi, terutama untuk meningkatkan maintainability. Namun, konteks penelitian ini lebih berfokus pada pemeliharaan sistem lama, bukan pengembangan sistem berbasis web secara menyeluruh.
+5	Penilaian Eksperimental Tentang Pengaruh Prinsip Desain Yang SOLID Terhadap Kualitas Perangkat Lunak Menggunakan Analisis Metrik CKJM. Bhaumik Tyagi (2022)	Hasil penelitian ini menunjukkan bahwa penerapan prinsip desain SOLID dapat meningkatkan kualitas perangkat lunak, terutama dalam hal pemeliharaan, penggunaan ulang, dan skalabilitas. Melalui evaluasi eksperimental menggunakan metrik CKJM, penerapan prinsip-prinsip ini terbukti efektif dalam memperbaiki struktur desain dan mendukung standar mutu perangkat lunak.	Sangat relevan dari segi teoritis karena mendukung pentingnya prinsip SOLID terhadap kualitas perangkat lunak. Namun, objek penelitian bersifat umum dan tidak difokuskan pada aplikasi e-commerce atau sistem berbasis web tertentu.
+6	Perancangan Sistem Informasi Penjualan Thrifting Dikalangan Milenial Berbasis Web. Laela (2023)	Hasil perancangan sistem informasi ini dapat merubah pemasaran barang bekas melalui platform instagram dengan mempermudah mekanisme penjualan, pencarian produk brand ternama, selain itu dapat mencegah kesalahan pengiriman barang dan kesalahan input data thrifting Squad 1994 penjualan.	Memiliki kesamaan pada domain aplikasi yaitu penjualan produk thrifting berbasis web. Namun, tidak menitikberatkan pada arsitektur perangkat lunak atau penggunaan prinsip desain seperti SOLID.
+7	Perancangan UI/UX Mobile Thrifting untuk Mengurangi Limbah Pakaian Bekas Menggunakan Metode Design Thinking. Faqih (2024)	Hasil wawancara dengan tujuh pengguna menunjukkan bahwa aplikasi ini memiliki beberapa kelebihan, tetapi juga ada beberapa area yang perlu diperbaiki. Kelebihan yang disorot termasuk tampilan halaman utama yang bersih dan mudah dimengerti, navigasi yang sederhana dan user-friendly, serta fitur flash sale dan donasi yang menarik perhatian pengguna.	Kesamaan terletak pada fokus aplikasi yang bergerak di bidang thrifting. Perbedaannya terletak pada sudut pandang penelitian yang lebih menitikberatkan pada desain antarmuka dan pengalaman pengguna, bukan struktur perangkat lunak atau kualitas kode.
+8	Implementasi SOLID dan Optimalisasi Query pada Aplikasi Pencatatan Kemiskinan. Usman  (2025)	Hasil analisis menunjukkan bahwa penerapan prinsip SOLID serta teknik optimalisasi menghasilkan jumlah source code yang lebih sedikit dan rekomendasi kode. Aplikasi yang dihasilkan menjadi lebih modular, efisien, dan mudah dikelola.	Peneilitian ini relevan karena sama-sama menerapkan prinsip SOLID untuk meningkatkan efisiensi kode dan struktur aplikasi. Namun, konteks aplikasinya berbeda, penelitian ini fokus pada pencatatan data kemiskinan, sedangkan penelitian saya berfokus pada pengembangan aplikasi e-commerce thrifting
+9	Penerapan Clean Architecture Dalam Membangun Aplikasi Berbasis Mobile Dengan Framework Google Flutter. Sinatria. (2023)	Hasil akan berupa sebuah kerangka dan penerapandari setiap layer Clean Architecture dengan menerapkan SOLID Principle.	Kesamaan terdapat pada pengembangan aplikasi berbasis web. Namun, penelitian ini tidak membahas kualitas desain kode maupun prinsip-prinsip desain perangkat lunak.
+10	Refactoring Aplikasi Xyz Menggunakan Pendekatan Clean Architecture. Nugroho (2024).	Hasil penerapan Clean Architecture dan prinsip SOLID mampu menurunkan kompleksitas kode dan meningkatkan efisiensi aplikasi. Evaluasi menunjukkan penurunan rata-rata nilai kompleksitas dari 1,5 menjadi 1,4, serta peningkatan kinerja pada aspek CPU, memori, dan waktu eksekusi.	Sama-sama menerapkan prinsip SOLID, namun fokus penelitian ini pada dampak Clean Architecture terhadap performa dan kompleksitas aplikasi Android. Sementara penelitian kamu fokus pada penerapan prinsip SOLID dalam pengembangan aplikasi web dan kualitas struktur kode.
+11	Menerapkan prinsip SOLID pada pustaka React JavaScript. Trodin, Matilda (2021).	Hasil penelitian ini menunjukkan bahwa dengan menerapkan prinsip SOLID, kita dapat menggunakan pendekatan berorientasi objek dalam pengembangan React, bahkan dapat memberikan kualitas kode yang lebih tinggi.	Sama-sama membahas penerapan prinsip SOLID, namun penelitian Trodin berfokus pada library React dengan orientasi objek, sedangkan penelitian ini lebih menekankan penerapan SOLID dalam pengembangan aplikasi web berbasis Laravel dengan studi kasus nyata pada fitur login, CRUD produk, dan checkout.
+12	Meneliti dampak prinsip desain SOLID terhadap pemahaman kode pembelajaran mesin. Cabral, Raphael (2024).	Hasil penelitian ini menemukan bahwa penerapan prinsip SOLID dapat meningkatkan keterbacaan, pemahaman, dan pemeliharaan kode dalam konteks pengembangan aplikasi pembelajaran mesin.	Perbedaannya terletak pada domain penelitian. Cabral berfokus pada kode pembelajaran mesin, sedangkan penelitian ini berfokus pada aplikasi web e-commerce. Namun, keduanya sama-sama menunjukkan bahwa prinsip SOLID membantu meningkatkan kualitas dan keterbacaan kode.
+13	Mengajarkan Prinsip-Prinsip Desain Perangkat Lunak SOLID Menggunakan Instruksi Sebaya Sebuah Studi Percontohan Gopal, Bhuvaneswari (2024).	Hasil penelitian memperlihatkan bahwa metode instruksi sebaya efektif dalam mengajarkan prinsip-prinsip SOLID kepada mahasiswa, sehingga meningkatkan pemahaman dan penerapan konsep desain perangkat lunak.	Penelitian Gopal lebih berfokus pada aspek pendidikan dalam mengajarkan prinsip SOLID, sedangkan penelitian ini menitikberatkan pada penerapan nyata prinsip SOLID dalam membangun aplikasi web. Perbedaan terletak pada orientasi, namun keduanya menegaskan pentingnya penerapan prinsip SOLID.
+14	Mengevaluasi Penerapan Prinsip SOLID dalam Arsitektur Kerangka Kerja AI Modern Shrestha, Jonesh. (2025).	Hasil penelitian ini menunjukkan bahwa penerapan prinsip SOLID pada kerangka kerja AI modern mampu meningkatkan modularitas, fleksibilitas, dan kemudahan integrasi sistem.	Sama-sama menilai dampak penerapan SOLID, tetapi penelitian Shrestha fokus pada kerangka kerja AI, sedangkan penelitian ini menitikberatkan pada aplikasi web e-commerce. Keduanya menegaskan bahwa prinsip SOLID dapat meningkatkan struktur kode agar lebih modular dan mudah dikembangkan.
+15	Penggunaan Kecerdasan Buatan (AI) Berbasis Large Language Models (LLM) dalam Deteksi dan Refaktorisasi Kode agar Sesuai dengan Prinsip Desain SOLID. Wijaya, Alfred Rajendra (2024).	Hasil penelitian ini menganalisis efektivitas GPT-4, GPT-3.5, dan Gemini dalam mendeteksi serta merefaktor kode agar sesuai prinsip SOLID. Hasil penelitian menunjukkan bahwa Gemini memiliki tingkat akurasi paling tinggi, bahkan mencapai skor sempurna dalam penerapan prinsip SOLID dibanding GPT-4 dan GPT-3.5 yang akurasinya lebih rendah.	Sama-sama berfokus pada penerapan prinsip SOLID, namun penelitian ini mengkaji efektivitas kecerdasan buatan (AI) dalam mendeteksi dan memperbaiki kode, sedangkan penelitian dengan judul “Penerapan Prinsip Desain SOLID dalam Pengembangan Aplikasi Happy Thrifting Berbasis Web” lebih menitikberatkan pada implementasi langsung prinsip SOLID dalam pembangunan aplikasi web e-commerce untuk meningkatkan kualitas kode, kemudahan pemeliharaan, serta fleksibilitas sistem.
+
+2.2Landasan Teori
+Pada poin ini akan menjelaskan teori-teori yang berkaitan dengan pokok permasalahan yang menjadi landasan bagi pemahaman dalam menyusun skripsi ini sebagai berikut:
+2.2.1Prinsip SOLID
+
+Gambar 2. 1 SOLID Principle
+	Menurut Robert C. Martin, SOLID Principle adalah kumpulan lima prinsip desain berorientasi objek yang bertujuan untuk membuat kode lebih mudah dipahami, dikelola, dan diperluas. Prinsip-prinsip ini adalah: Single Responsibility Principle, Open/Closed Principle, Liskov Substitution Principle, Interface Segregation Principle, dan Dependency Inversion Principle. [16]
+Prinsip SOLID merupakan lima prinsip dasar dalam desain perangkat lunak berorientasi objek yang bertujuan untuk meningkatkan kualitas perangkat lunak, khususnya dalam fleksibilitas, keterbacaan, dan kemudahan pemeliharaan. SOLID merupakan akronim dari lima prinsip utama yaitu:[17]
+
+1.Single Responsibility Principle (SRP)
+Penjelasan:
+Prinsip ini menyatakan bahwa setiap kelas hanya boleh memiliki satu tanggung jawab. Artinya, satu class tidak boleh mencampurkan logika yang berbeda agar kode lebih mudah dipelihara.
+Code:
+<?php
+class RegisterUserService {
+    public function execute(array $data) {
+        return User::create($data);
+    }
+}
+
+class SendWelcomeEmail {
+    public function execute(User $user) {
+        Mail::to($user->email)->send(new WelcomeMail($user));
+    }
+}
+
+2.Open/Closed Principle (OCP)
+DPenjelasan:
+Prinsip ini menyatakan bahwa kelas harus terbuka untuk ekstensi, namun tertutup untuk modifikasi. Jadi, jika ada fitur baru, kita cukup menambahkan class baru tanpa mengubah class yang sudah ada.efinisi: kelas terbuka untuk ekstensi, tetapi tertutup untuk modifikasi.
+Code:
+<?php
+interface PaymentMethod { public function pay($amount); }
+
+class CreditCardPayment implements PaymentMethod {
+    public function pay($amount) { return "Pay $amount with Credit Card"; }
+}
+
+class PaypalPayment implements PaymentMethod {
+    public function pay($amount) { return "Pay $amount with PayPal"; }
+}
+
+3.Liskov Substitution Principle (LSP)
+Penjelasan:
+Prinsip ini menyatakan bahwa subclass harus bisa digunakan menggantikan superclass tanpa mengubah perilaku program.
+Code:
+<?php
+abstract class Notification { abstract public function send($msg); }
+
+class EmailNotification extends Notification {
+    public function send($msg) { Mail::raw($msg, fn($m)=>$m->to("user@test.com")); }
+}
+
+class SmsNotification extends Notification {
+    public function send($msg) { echo "SMS: $msg"; }
+}
+
+
+4.Interface Segregation Principle (ISP): 
+Penjelasan:
+Prinsip ini menyarankan agar interface tidak terlalu besar, sehingga class tidak dipaksa mengimplementasikan method yang tidak dibutuhkan.
+Code:
+<?php
+interface Printer { public function print(); }
+interface Scanner { public function scan(); }
+
+class AllInOne implements Printer, Scanner {
+    public function print() { echo "Printing"; }
+    public function scan() { echo "Scanning"; }
+}
+
+
+5.Dependency Inversion Principle (DIP):
+Penjelasan:
+Prinsip ini menyarankan agar interface tidak terlalu besar, sehingga class tidak dipaksa mengimplementasikan method yang tidak dibutuhkan.
+Code:
+<?php
+interface UserRepository { public function save($data); }
+
+class MySQLUserRepository implements UserRepository {
+    public function save($data) { return User::create($data); }
+}
+
+class UserService {
+    private $repo;
+    public function __construct(UserRepository $repo) { $this->repo = $repo; }
+    public function register($data) { return $this->repo->save($data); }
+}
+
+
+2.2.2Aplikasi Happy Thrifting
+ Happy Thrifting adalah aplikasi berbasis website yang dirancang untuk  mempermudahkan proses jual beli baju bekas secara online dari satu toko. Aplikasi ini dibuat dengan bertujuan untuk memudahkan pelanggan dalam melakukan pemesanan dan membantu admin toko dalam mengelola produk dan pesanan. Berikut fitur-fitur utama dalam aplikasi ini adalah:
+1.Pendaftaran dan login pengguna serta Admin.
+2.Menambah produk, ubah, dan hapus.
+3.Pencarian produk.
+4.Proses pemesanan produk dan Checkout
+5.Konfirmasi pembayaran oleh pengguna
+
+
+BAB III
+METODOLOGI PENELITIAN
+3.1Data dan Alat Penelitian
+Pada tahapan penelitian pengembangan sistem ini dibutuhkan data dan alat penelitian untuk mendukung jalannya perancangan sistem yang akan dibuat.
+3.1.1Data Penelitian
+Data yang digunakan dalam penelitian ini berasal dari sistem lama atau sistem sebelumya dan dokumentasi kode program yang telah tersedia. Data ini mencerminkan fitur-fitur utama dalam sistem, seperti:
+1.Pendaftaran dan login pengguna serta Admin.
+2.Menambah produk, ubah, dan hapus.
+3.Pencarian produk.
+4.Proses pemesanan produk dan Checkout
+5.Konfirmasi pembayaran oleh pengguna
+Sebagai contoh, berikut merupakan ringkasan kode dari file AuthController.php yang digunakan untuk menampilkan from pendaftaran pada sistem lama.
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+class AuthController extends Controller
+{
+    public function showLoginForm()
+    {
+        return view('user.login');
+    }
+
+    public function showRegisterForm()
+    {
+        return view('user.register');
+    }
+
+    // Proses login
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        // Coba autentikasi pengguna
+        if (Auth::attempt($credentials, $request->remember)) {
+            $request->session()->regenerate();
+
+            // Periksa role pengguna
+            if (Auth::user()->role !== 'user') {
+                // Logout jika peran tidak sesuai
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                // Redirect ke login dengan pesan error
+                return back()->withErrors([
+                    'email' => 'You are not authorized to access this page.',
+                ])->withInput();
+            }
+
+            // Redirect ke halaman indeks jika peran valid
+            return redirect()->intended('/');
+        }
+
+        // Jika gagal autentikasi, kembali ke halaman login dengan pesan error
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->withInput();
+    }
+
+    // Logout
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
+
+    // Proses register
+    public function register(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'alamat' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
+            'role' => 'user', // Role default
+        ]);
+
+        // Buat user baru
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'alamat' => $request->alamat,
+            'password' => Hash::make($request->password), // Hash password
+        ]);
+
+        // Login otomatis setelah register
+        Auth::login($user);
+
+        // Redirect ke halaman utama setelah berhasil register
+        return redirect()->route('index')->with('success', 'Account successfully created!');
+    }
+}
+
+Pada kode di atas, logika dan tampilan masih tercampur dalam satu controller sehingga belum sepenuhnya menerapkan prinsip Single Responsibility Principle (SRP). Hal ini dapat menyulitkan pemeliharaan karena tidak ada pemisahan tanggung jawab. Sebaiknya, validasi dipisahkan ke Form Request dan logika bisnis dipindahkan ke Service Class agar struktur kode lebih rapi dan mudah dikembangkan.
+
+
+
+
+3.1.2Alat Penelitian
+Dalam pelaksanaan penelitian ini digunakan alat berupa perangkat keras dan perangkat lunak, yaitu:
+1.Perangkat Keras (Hardware):
+a.Prosesor 			: Intel(R) Core(TM) i5-6200U 
+ CPU @ 2.30GHz
+b.Memori (RAM) 		:8GB
+c.Tipe Sistem		            : 64-bit Operating System, 
+  x64-based Processor
+d.Resolusi layar 		            : 1920 x 1080 piksel
+e.Sistem Operasi	            : Windows 10 Pro
+2.Perangkat Lunak (Sofware):
+Framework			: Laravel
+Tetx Editor			: Visual Studi Code,Microsoft 
+					  Word
+Bahasa Pemograman		: PHP
+Server				: Xampp (Apache,MySQL)
+Web Browser			: Google Chrome, Mozilla 
+					  Firefox
+Draw io
+
+3.2Prosedur Penelitian
+Prosedur penelitian ini terdiri dari lima tahapan utama yang disusun secara sistematis untuk mencapai tujuan penelitian, khususnya dalam penerapan prinsip desain SOLID pada pengambangan perangkat lunak ada pun tahapan-tahapan tersebut adalah:
+
+Gambar 3. 1 Gambar Prosedur Penelitian
+1.Identifikasi Masalah dan Studi Literatur 
+Mengidentifikasi permasalahan utama dalam melakukan pengambangan perangkat lunak, yaitu seperti struktur kode yang tidak modular dan sulit untuk dipelihara. Melakukan studi literatur dari berbagai macam referensi untuk memahami dan mendalami prinsip SOLID sebagai pendekatan dalam melakukan perangkat lunak yang baik dan struktur.
+
+2. Pengumpulan Data Sistem lama
+ Pada tahap ini, data dikumpulkan dalam bentuk dokumentasi kode dari     sistem lama yang telah berjalan sebelumnya. Proses ini bertujuan untuk mengidentifikasi kelemahan struktur kode yang ada, sehingga dapat menjadi dasar dalam perencanaan refaktorisasi. Selain itu, pengumpulan data juga dilakukan melalui studi literatur dari berbagai jurnal ilmiah dan buku untuk memperkuat landasan teori dan metodologi yang digunakan dalam proses pengembangan sistem.
+
+
+3.Implementasi Prinsip SOLID
+Tahap ini merupakan inti dari penelitian, yaitu melakukan refaktoritas kode dengan menerapkan prinsip-prinsip SOLID. Proses ini dilakukan untuk memperbaiki struktur kode agar lebih modular dan mudah dipelihara.
+Sebagai contoh, dilakukan penerapan prinsip Single Responbility Principle (SRP) pada fitur penambahan produk dalam sistem. Sebelumnya, proses validasi, pengolahan gambar, dan penyimpanan data dilakukan dalam satu method di controller, sehingga kode menjadi tidak terstruktur dan sulit dipelihara. Setelah refaktorisasi, setiap tugas dipisahkan ke dalam class yang berbeda agar kode lebih rapi, mudah diuji, dan fleksibel dikembangkan.
+Kode sebelum  dan sesudah melakukan Refaktorisasi 
+Kode sebelum menerapkan srp	Kode sesudah menerapkan srp
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Kategori;
+use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
+class ProductController extends Controller
+{
+    public function index()
+    {
+        $kategories = Kategori::all();
+        $products = Product::with('kategori')->get();
+        return view('admin.products', compact('products', 'kategories'));
+    }
+
+    public function store(Request $request)
+    {
+        // Validasi form input
+        $request->validate([
+            'nama_produk' => 'required|string|max:255',
+            'kategori_produk' => 'required|string', // Nama kategori dari form
+            'harga_produk' => 'required|numeric',
+            'jumlah_produk' => 'required|numeric',
+            'gambar_produk' => 'required|image|max:2048',
+        ]);
+
+        // Cari ID kategori berdasarkan nama
+        $kategori = Kategori::where('nama_kategori', $request->kategori_produk)->first();
+        if (!$kategori) {
+            return redirect()->back()->with('error', 'Kategori tidak ditemukan.');
+        }
+
+        // Simpan file gambar ke storage
+        $path = $request->file('gambar_produk')->store('products', 'public');
+
+        // Buat produk baru
+        Product::create([
+            'id_user' => Auth::id(),
+            'nama_produk' => $request->nama_produk,
+            'id_kategori' => $kategori->id, // Simpan ID kategori
+            'harga_produk' => $request->harga_produk,
+            'jumlah_produk' => $request->jumlah_produk,
+            'gambar_produk' => $path,
+        ]);
+
+        return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan!');
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        // Validasi input
+        $request->validate([
+            'nama_produk' => 'required|string|max:255',
+            'kategori_produk' => 'required|string', // Nama kategori dari form
+            'harga_produk' => 'required|numeric',
+            'jumlah_produk' => 'required|numeric',
+            'gambar_produk' => 'nullable|image|max:2048',
+        ]);
+
+        // Cari ID kategori berdasarkan nama
+        $kategori = Kategori::where('nama_kategori', $request->kategori_produk)->first();
+        if (!$kategori) {
+            return redirect()->back()->with('error', 'Kategori tidak ditemukan.');
+        }
+
+        // Update gambar jika ada
+        if ($request->hasFile('gambar_produk')) {
+            if ($product->gambar_produk && Storage::exists('public/' . $product->gambar_produk)) {
+                Storage::delete('public/' . $product->gambar_produk);
+            }
+            $product->gambar_produk = $request->file('gambar_produk')->store('products', 'public');
+        }
+
+        // Update produk
+        $product->update([
+            'nama_produk' => $request->nama_produk,
+            'id_kategori' => $kategori->id, // Simpan ID kategori
+            'harga_produk' => $request->harga_produk,
+            'jumlah_produk' => $request->jumlah_produk,
+            'gambar_produk' => $product->gambar_produk,
+        ]);
+
+        return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui!');
+    }
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Product $product)
+    {
+        // Hapus gambar dari storage jika ada
+        if ($product->gambar_produk && Storage::exists('public/' . $product->gambar_produk)) {
+            Storage::delete('public/' . $product->gambar_produk);
+        }
+
+        // Hapus produk
+        $product->delete();
+
+        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus!');
+    }
+}	<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Kategori;
+use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
+class ProductController extends Controller
+{
+    public function index()
+    {
+        $kategories = Kategori::all();
+        $products = Product::with('kategori')->get();
+
+        return view('admin.products', compact('products', 'kategories'));
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate($this->rules(true));
+
+        $kategori = $this->findKategori($data['kategori_produk']);
+        if (!$kategori) {
+            return back()->with('error', 'Kategori tidak ditemukan.');
+        }
+
+        $path = $this->handleImageUpload($request);
+
+        Product::create([
+            'id_user'       => Auth::id(),
+            'nama_produk'   => $data['nama_produk'],
+            'id_kategori'   => $kategori->id,
+            'harga_produk'  => $data['harga_produk'],
+            'jumlah_produk' => $data['jumlah_produk'],
+            'gambar_produk' => $path,
+        ]);
+
+        return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan!');
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $data = $request->validate($this->rules());
+
+        $kategori = $this->findKategori($data['kategori_produk']);
+        if (!$kategori) {
+            return back()->with('error', 'Kategori tidak ditemukan.');
+        }
+
+        if ($request->hasFile('gambar_produk')) {
+            $this->deleteImage($product->gambar_produk);
+            $product->gambar_produk = $this->handleImageUpload($request);
+        }
+
+        $product->update([
+            'nama_produk'   => $data['nama_produk'],
+            'id_kategori'   => $kategori->id,
+            'harga_produk'  => $data['harga_produk'],
+            'jumlah_produk' => $data['jumlah_produk'],
+            'gambar_produk' => $product->gambar_produk,
+        ]);
+
+        return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui!');
+    }
+
+    public function destroy(Product $product)
+    {
+        $this->deleteImage($product->gambar_produk);
+        $product->delete();
+
+        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus!');
+    }
+
+    /**
+     * Rules validasi form.
+     */
+    private function rules($isStore = false): array
+    {
+        return [
+            'nama_produk'     => 'required|string|max:255',
+            'kategori_produk' => 'required|string',
+            'harga_produk'    => 'required|numeric',
+            'jumlah_produk'   => 'required|numeric',
+            'gambar_produk'   => ($isStore ? 'required' : 'nullable') . '|image|max:2048',
+        ];
+    }
+
+    /**
+     * Cari kategori berdasarkan nama.
+     */
+    private function findKategori(string $nama)
+    {
+        return Kategori::where('nama_kategori', $nama)->first();
+    }
+
+    /**
+     * Upload gambar produk.
+     */
+    private function handleImageUpload(Request $request): ?string
+    {
+        return $request->file('gambar_produk')?->store('products', 'public');
+    }
+    /**
+     * Hapus gambar dari storage.
+     */
+    private function deleteImage(?string $path): void
+    {
+        if ($path && Storage::exists('public/' . $path)) {
+            Storage::delete('public/' . $path);
+        }
+    }
+}
+
+
+Penjelasan :
+Kode sebelum Refaktorisasi (belum menerapkan SRP)
+Pada kode diatas, controller bertanggung jawab atas validasi data, pemrosesan gambar, dan penyimpanan data sekaligus, sehingga melanggar prinsip SRP.
+Kode setelah refaktorisasi (menerapkan SRP)
+Dengan menerapkan prinsip SRP, tanggung jawab setiap komponen dalam sistem menjadi lebih terfokus. StoreProductRequest menangani validasi data, ProductService menangani logika bisnis, dan ProductControler hanya menjadi penghubung antar komponen. Hal ini menjadikan kode lebih terorganisir, mudah diuji, dan dapat dikembangkan tanpa memengaruhi komponen lain.
+
+4.Evaluasi Hasil Implementasi
+Evaluasi hasil implementasi dilakukan untuk menilai sejauh mana penerapan prinsip SOLID memberi pengaruh terhadap kualitas dan terkelolaan kode dalam pengembangan aplikasi. Evaluasi ini dilakukan dengan membandingkan struktur dan logika kode sebelum dan sesudah dilakukan refaktorisasi. Maka untuk memperoleh hasil yang lebih objektif dan terstruktur, penelitian ini menggunakan tools analisis statis bernama Laravel Insights, yang mampu menganalisis kualitas kode berdasarkan beberapa aspek penting seperti code quality, architecture, complexity, dan coding style. Untuk penjelasan lebih detail mengenai evaluasi hasil akan disampaikan pada subbab 3.4.5 Evaluasi Penerapan Pinsip SOLID.
+
+5.Kesimpulan dan Laporan
+Tahap akhir adalah menyusun laporan hasil penelitian. Laporan ini mencangkup seluruh proses mulai dari identifikasi masalah hingga evaluasi, serta menyajikan kesimpulan atas manfaat penerapan prinsip SOLID dalam pengembangan aplikasi.                          
+3.3Analisa Kebutuhan
+Analisis ini dilakukan untuk mengetahui apa saja yang dibutuhkan agar Aplikasi Happy Thrifting bisa berjalan dengan baik dan sesuai tujuannya kebutuhan sistem dibagi menjadi dua, yaitu kebutuhan fungsional dan kebutuhan non-fungsional.
+3.3.1Kebutuhan Fungsional
+Kebutuhan fungsional ini terdiri dari fitur-fitur utama yang harus ada dalam aplikasi, misalnya seperti berikut:
+Pengguna:
+1.Registrasi dan login ke aplikasi
+2.Melihat dan mencari produk
+3.Menambahkan produk ke keranjang
+4.Melakukan checkout atau pembelian
+5.Melihat riwayat transaksi
+Admin
+1.Menambah produk baru ke dalam sistem 
+2.Mengedit informasi produk yang sudah ada
+3.Menghapus produk yang tidak tersedia lagi
+4.Mengelola data pengguna
+5.Melihat dan memantau transaksi yang terjadi
+3.3.2Kebutuhan non fungsional
+Kebutuhan non-fungsional ini lebih kekualitas dari sistem yang dibuat, supaya aplikasi bisa berjalan dengan lancar. Beberapa diantaranya sebegai berikut:
+1.Aksesibilitas: aplikasi bisa dibuka kapan saja, tanpa adanya keterbatasan waktu.
+2.Keamanan: Ada beberapa fitur yang hanya bisa diakses kalau pengguna sudah melakukan login, seperti checkout dan melakukan transaksi pembayaran.
+3.Kerapian Kode: Kode disusun dengan rapi dan jelas supaya lebih mudah dimengerti, dan sesuai sama prinsip SOLID.
+4.Kemudahan Pengembang: Sistem dibuat supaya mudah di peraiki atau untuk menambah fitur kalau suatu saat dibutuhkan nanti.
+
+3.4Perancangan
+Perancangan sistem yang digunakan untuk mengambarkan rancangan awal dari aplikasi Happy Thrifting yang akan dikembangkan. Tahapan ini  bertujuan untuk memberikan gambaran menyeluruh mengenai alur sistem, struktur data, interaksi pengguna, serta bagaimana kode program akan disusun. Prinsip-prinsip SOLID diterapkan sebagai pendekatan utama agar sistem yang dikembanag memiliki struktur yang rapi, mudah di pelihara, dan dapat dikembangkan lagi dimasa mendatang.
+3.4.1.Analisis Sistem Yang Sedang Berjalan
+Pada aplikasi Happy Thrifting sebelumnya belum menerapkan prinsip-prinsip perancangan perangkat lunak yang baik, khususmya prinsip SOLID. Hal ini  menyebabkan struktur kode menjadi tidak terorganisir, banyak kelas memliki tangung jawab ganda, dan menyulitkan proses pengembangan maupun pengujian sistem.
+3.4.2.Sistem Di Usulkan
+Sistem yang diusulkan dirancang ulang kembali dengan menerapkan prinsip SOLID. Setiap kelas memiliki satu tanggung jawab, interface disesuaikan dengan kebutuhan, dan ketergantungan antar komponen dikurangi dengan memanfatkan abstraksi. Dengan pendekatan ini, sistem menjadi lebih terstruktur, mudah diuji, serta mendukung pengembangan berkelanjutan dimasa mendatang.
+3.4.3.Use Case Diagram
+Use case diagram digunakan untuk mengambarkan interaksi antara aktor yaitu pengguna dan admin dengan sistem. Diagram ini menunjukan fitur atau fungsi yang dapat dilakukan oleh masing-masing aktor.
+   
+Gambar 3. 2 Use Case Diagram
+3.4.4.Perancangan Antar Muka
+Perancangan antarmuka merupakan salah satu tahapan penting dalam proses pengembangan sistem yang berfokus pada desain tampilan sebagai sarana interaksi antara pengguna dengan aplikasi. Tujuan utama dari perancangan ini adalah untuk menciptakan tampilan yang sederhana, mudah digunakan, dan mampu menyajikan fungsi-fungsi sistem secara jelas dan terstruktur. Dengan antarmuka yang dirancang secara efektif, diharapkan pengguna dapat merasakan kenyamanan dalam menggunakan aplikasi serta dapat menjalankan fitur-fitur yang tersedia dengan lebih efisien dan intuitif.
+1.Struktur Aplikasi Menerapkan SOLID
+Struktur Aplikasi Sebelum Refaktorisasi (Belum Menerapkan Prinsip SOLID)
+
+Gambar 3. 3 Struktur Sebelum Menerapkan Prinsip SOLID
+Struktur pada gambar ini menunjukkan kondisi awal aplikasi sebelum dilakukan refaktorisasi menggunakan prinsip SOLID. Terlihat bahwa sebagian besar logika program masih terpusat pada controller dan model. Hal ini menyebabkan controller menangani terlalu banyak tanggung jawab, seperti logika bisnis, validasi data, hingga proses pengiriman email. Pendekatan ini tidak sesuai dengan prinsip Single Responsibility Principle (SRP), karena satu kelas atau komponen menangani berbagai fungsi sekaligus. Selain itu, struktur ini juga menyulitkan proses pengujian dan pemeliharaan karena keterkaitan antar bagian yang sangat erat.
+Struktur Aplikasi Setelah Refaktorisasi (Menerapkan Prinsip SOLID)
+
+Gambar 3. 4 Struktur Setelah Menerapkan Prinsip SOLID
+Gambar ini menunjukkan struktur aplikasi setelah dilakukan refaktorisasi dengan menerapkan prinsip SOLID. Tanggung jawab dipisahkan ke dalam folder seperti Services, Requests, dan Mail, sehingga controller hanya fokus pada permintaan dan delegasi tugas. Penerapan prinsip Single Responsibility Principle (SRP) terlihat dari pembagian peran yang jelas, dan Dependency Inversion Principle (DIP) diterapkan melalui dependency injection. Dengan struktur ini, aplikasi menjadi lebih rapi, mudah diuji, dan dikelola.
+
+2.Desain UI/UX
+a.Halaman Beranda
+
+Gambar 3. 5 Halaman Beranda 
+Gambar di atas menunjukkan tampilan halaman beranda aplikasi Happy Thrifting yang dirancang untuk memberikan informasi awal mengenai aplikasi. Pada halaman ini terdapat elemen teks yang menyampaikan sambutan kepada pengguna, disertai penjelasan singkat mengenai produk yang dijual, yaitu pakaian bekas berkualitas. Tampilan dibuat sederhana dengan latar putih dan elemen teks terpusat di tengah halaman. Tidak terdapat elemen interaktif seperti daftar produk atau tombol aksi, karena halaman ini hanya berfungsi sebagai halaman pembuka sebelum pengguna mengakses fitur-fitur utama lainnya.
+b.Halaman Product
+
+Gambar 3. 6 Halaman Produk
+Halaman ini menampilkan daftar produk yang tersedia di aplikasi Happy Thrifting, seperti Kemeja Pria, Blouse Wanita, dan Celana Jeans lengkap dengan gambar dan harga. Tersedia dua tombol aksi pada setiap produk, yaitu "Tambahkan ke Keranjang" dan "Beli Sekarang" untuk mempermudah pengguna dalam proses pembelian.
+c.Halaman Keranjang
+
+
+Gambar 3. 7 Halaman Keranjang
+Halaman Keranjang berfungsi untuk menampilkan daftar produk yang telah dipilih pengguna sebelum melakukan checkout. Setiap produk ditampilkan lengkap dengan gambar, nama, dan harga. Pengguna dapat menghapus item melalui ikon tempat sampah. Di bagian bawah, terdapat total harga keseluruhan dan tombol "Checkout" untuk melanjutkan ke proses pembayaran.
+
+3.4.5.Evaluasi Penerapan Prinsip SOLID
+Evaluasi dilakukan untuk mengetahui sejauh mana penerapan prinsip SOLID dapat meningkatkan kualitas kode pada aplikasi Happy Thrifting berbasis web. Evaluasi ini difokuskan pada perbandingan struktur kode sebelum dan sesudah dilakukan refaktorisasi dengan menerapkan prinsip SOLID.
+Tujuan dari evaluasi ini adalah untuk melihat apakah terdapat perubahan yang signifikan dalam hal keterbacaan, kemudahan pemeliharaan, dan kerapihan struktur kode setelah prinsip-prinsip SOLID diterapkan. Selain dilakukan secara manual, evaluasi juga dibantu dengan menggunakan tools Laravel Insights yang dapat memberikan penilaian terhadap kualitas kode secara kuantitatif berdasarkan beberapa aspek seperti kompleksitas, arsitektur, dan kepatuhan terhadap prinsip desain. Hasil dari evaluasi ini akan menjadi acuan untuk menilai apakah penerapan prinsip SOLID mampu memberikan dampak positif dalam proses pengembangan dan pengelolaan aplikasi ke depannya.
+A.Hasil Evaluasi dengan Laravel Insights
+Sebelum menampilkan hasil evaluasi, perlu disampaikan bahwa penggunaan Laravel Insights dalam penelitian ini masih berada pada tahap awal analisis kualitas kode. Dengan kata lain, hasil yang ditampilkan di bagian ini hanya memberikan gambaran awal mengenai kondisi kode sebelum dan sesudah dilakukan refaktorisasi serta penerapan prinsip SOLID. Analisis yang lebih mendalam dapat dilakukan pada tahap selanjutnya agar hasil yang diperoleh menjadi lebih lengkap dan komprehensif.
+Tools ini memberi skor berdasarkan beberapa indikator seperti:
+1.Code Quality = Mengukur kualitas penulis kode secara keseluruhan.
+2.Complexity = Menilai kompleksitas logika program.
+3.Architecture = Mengukur Kepatuhan struktur terhadap arsitekture yang baik.
+4.Style = Mengukur konsistensi gaya penulisan kode
+Sebelum dilakukan refaktorisasi dan penerapan prinsip SOLID, diperoleh hasil sebagai berikut:
+
+Gambar 3. 8 Hasil Evaluasi Kode Menggunakan Laravel Insights Sebelum Refaktorisasi
+Setelah dilakukan refaktorisasi dan penerapan prinsip SOLID, diperoleh hasil sebagai berikut:
+
+Gambar 3. 9 Hasil Evaluasi Kode Menggunakan Laravel Insights Setelah Refaktorisasi
+B.Implementasi Hasil
+Tabel 3. 1 Hasil Evaluasi Kualitas Kode Menggunakan Laravel Insights
+Aspek Evaluasi	Sebelum Refaktorisasi	Sesudah Refaktorisasi	Perubahan
+Code	92.8%	96.7%	+3.9%
+Complexity	93.0%	100%	+7.0%
+Architecture	88.2%	81.3%	-6.9%
+Style	81.9%	84.1%	+2.6%
+Score Scale	9.28 / 10	9.60 / 10	+0.32
+ 
+Berdasarkan Tabel 3.1, penerapan prinsip SOLID memberikan dampak terhadap peningkatan kualitas kode pada beberapa aspek. Aspek Complexity mengalami kenaikan dari 93,0% menjadi 100%, yang menunjukkan bahwa alur logika program menjadi lebih sederhana dan efisien. Aspek Code juga meningkat dari 92,8% menjadi 96,7%, menandakan struktur kode lebih rapi dan sesuai standar penulisan. Pada aspek Style, nilai bertambah dari 81,5% menjadi 84,1%, yang berarti gaya penulisan kode lebih konsisten.
+Sementara itu, aspek Architecture sedikit menurun dari 88,2% menjadi 81,3%. Penurunan ini terjadi karena adanya pemisahan tanggung jawab ke dalam beberapa kelas sesuai prinsip SOLID, sehingga arsitektur sistem terlihat lebih terpecah. Meski demikian, kondisi ini justru memudahkan proses pemeliharaan dan pengembangan sistem ke depannya.
+Secara keseluruhan, skor kualitas meningkat dari 9,28 menjadi 9,60. Dengan demikian, dapat disimpulkan bahwa refaktorisasi kode menggunakan prinsip SOLID berhasil meningkatkan kualitas kode karena menjadi lebih sederhana, bersih, konsisten, serta lebih mudah untuk dikelola.
+C.Perbandingan Kode Sebelum dan Sesudah Refaktorisasi
+Berikut ini merupakan contoh penerapan prinsip Single Responsibility Principle (SRP) dan Dependency Inversion Principle (DIP) pada fitur menambah produk:
+Sebelum refaktoriasi	  Sesudah refaktorisasi
+<? php 
+public function store(Request $request)
+{
+    $product = new Product();
+    $product->name = $request->name;
+    $product->price = $request->price;
+
+    if ($request->price < 0) {
+        return redirect()->back()->withErrors('Harga tidak boleh negatif');
+    }
+
+    $product->save();
+    return redirect()->route('products.index');
+}	<? php 
+public function store(ProductRequest $request, ProductService $productService)
+{
+    $productService->create($request->validated());
+    return redirect()->route('products.index');
+}
+
+  Penjelasan:
+Sebelum refaktorisasi, kode di dalam controller menangani terlalu banyak tanggung jawab sekaligus, yaitu validasi input, logika bisnis, dan penyimpanan data. Setelah refaktorisasi:
+a.Validasi dipisahkan ke ProductRequest.
+b.Proses penyimpanan produk dipisahkan ke dalam class ProductService.
+Dengan cara ini, controller hanya bertanggung jawab untuk menangani request dan response, sesuai prinsip SRP. Sementara itu, class ProductService di-inject menggunakan dependency injection (DIP), sehingga mudah untuk diuji atau diganti jika diperlukan.
+
+D.Kesimpulan Evaluasi
+ Berdasarkan hasil evaluasi menggunakan Laravel Insights, penerapan prinsip SOLID memberikan dampak positif terhadap kualitas kode. Hal ini terlihat dari skor complexity sebesar 100% yang menunjukkan logika program tersusun dengan efisien. Skor code quality sebesar 96.7% juga menunjukkan bahwa kode sudah ditulis dengan standar yang baik. Selain itu, aspek architecture dan style mengalami peningkatan, menandakan bahwa struktur dan gaya penulisan kode menjadi lebih terorganisir, konsisten, dan mudah untuk dikembangkan di masa mendatang.
+
+
+BAB VI
+PENUTUP
+4.1Jadwal Penelitian
+Jadwal penelitian disusun sebagai acuan waktu dalam pelaksanaan setiap tahapan kegiatan penelitian agar berjalan secara sistematis dan terarah. Penelitian ini mencangkup tahapan mulai dari identifikasi masalah dan studi literatur, pengumpulan data sistem lama, implementasi prinsip SOLID ke dalam sisitem, evaluasi hasil implementasi, hingga tahap penyusunan laporan akhir. Jadwal disusun berdasarkan estimasi waktu yang dibutuhkan untuk menyelesaikan masing-masing tahapan agar penelitian dapat selesai tepat waktu.
+Tabel 4. 1 Jadwal Penelitian
+No	Kegiatan	1	2	3	4	5	6
+		1	2	3	4	1	2	3	4	1	2	3	4	1	2	3	4	1	2	3	4	1	2	3	4
+1.	Identifikasi masalah dan studi literatur	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2.	Pengumpulan data Sistem Lama	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+3.	Implementasi prinisp SOLID	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+4.	Evaluasi hasil implementasi	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+5.	Kesimpulan dan Laporan	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+
+4.2Rencana Anggaran Biaya
+ Dalam penyusunan pengembangan sistem ini, terdapat beberapa biaya yang diperlukan untuk mendukung proses penelitian dan penulisan. Yaitu sebagai berikut:
+
+
+
+
+Tabel 4. 2 Rencana Anggaran Biaya
+No	Jenis Anggaran	Volume	Harga Satuan (Rp)	Total (Rp)
+1	Kertas	5 rim	50.000	250.000
+2	Tinta Printer	3 set	60.000	180.000
+3	Jilid Proposal Skripsi	5 buah	15.000	75.000
+4	Hosting Aplikasi Website	1 tahun	450.000	450.000
+Total 	955.000
+
+
+
+
+
+DAFTAR PUSTAKA
+
+[1]	N. Chikkanayakanahalli and R. Lead, “Prinsip Desain SOLID dalam Rekayasa Perangkat Lunak,” vol. 72, no. September, pp. 18–23, 2024.
+[2]	U. Usman, W. Widhiarso, and M. Rachmadi, “Implementasi SOLID dan Optimalisasi Query pada Aplikasi Pencatatan Kemiskinan,” MDP Student Conf., vol. 4, no. 1, pp. 284–291, 2025, doi: 10.35957/mdp-sc.v4i1.11176.
+[3]	“METODE CLEAN ARCHITECTURE BERDASARKAN PRINSIP DESAIN SOLID UNTUK ANALISIS APLIKASI PENCATATAN ABSENSI DARING ( PANDA ) Oleh : Josua Manalu FAKULTAS ILMU KOMPUTER DAN REKAYASA UNIVERSITAS MULTI DATA PALEMBANG PALEMBANG Fakultas Ilmu Komputer dan Rekayasa U,” 2024.
+[4]	J. Manalu et al., “3 RD MDP STUDENT CONFERENCE (MSC) 2024 Refactor Aplikasi Absensi Berdasarkan Clean Architecture Dan Prinsip Desain SOLID,” pp. 14–21, 2024.
+[5]	I. Yanakiev, B. Lazar, and A. Capiluppi, “Jurnal Sistem dan Perangkat Lunak Menerapkan prinsip-prinsip SOLID untuk pemfaktoran ulang kode lama : Sebuah laporan,” vol. 220, pp. 1–15, 2025.
+[6]	D. Pro, “Volume : Penilaian Eksperimental tentang Pengaruh Prinsip Desain yang Solid terhadap kualitas Perangkat Lunak menggunakan Analisis Metrik CKJM,” no. September, 2022.
+[7]	M. Mazzari and D. Ayu Muthia, “Perancangan Sistem Informasi Penjualan Thrifting Berbasis Web,” Akrab Juara  J. Ilmu-ilmu Sos., vol. 7, no. 2, p. 202, 2022, doi: 10.58487/akrabjuara.v7i2.1805.
+[8]	M. Faqih, “Sekolah Tinggi Teknologi Terpadu Nurul Fikri Perancangan UI/UX Mobile Thrifting untuk Mengurangi Limbah Pakaian Bekas Menggunakan Metode Design Thinking Tugas Akhir,” Https://Repository.Nurulfikri.Ac.Id/, 2024.
+[9]	M. B. Sinatria, Oman Komarudin, and Kamal Prihamdani, “Penerapan Clean Architecture Dalam Membangun Aplikasi Berbasis Mobile Dengan Framework Google Flutter,” INFOTECH J., vol. 9, no. 1, pp. 132–146, 2023, doi: 10.31949/infotech.v9i1.5237.
+[10]	B. Nugroho, N. F. Azhar, and P. C. Subekti, “Refactoring Aplikasi Xyz Menggunakan Pendekatan Clean Architecture,” Inf. Syst. J., vol. 7, no. 01, pp. 20–33, 2024, doi: 10.24076/infosjournal.2024v7i01.1579.
+[11]	M. Trodin, “Menerapkan prinsip SOLID ke pustaka React JavaScript,” no. September, 2021.
+[12]	R. Cabral et al., “Menyelidiki Dampak Prinsip Desain SOLID pada Mesin Belajar Memahami Kode,” 2024.
+[13]	B. Gopal and U. Nebraska, “Machine Translated by Google Machine Translated by Google Mengajarkan prinsip-prinsip desain perangkat lunak SOLID menggunakan Peer,” 2024.
+[14]	J. Shrestha, “Evaluating the Application of SOLID Principles in Modern AI Framework Architectures,” 2025, [Online]. Available: http://arxiv.org/abs/2503.13786
+[15]	A. R. Wijaya, E. I. Hidayah, and M. A. Yaqin, “Analisis Penerapan Prinsip SOLID pada Tugas Proyek Mahasiswa UIN Malang,” Sisfo, vol. 11, no. 02, 2024, doi: 10.24089/j.sisfo.2024.06.007.
+[16]	E. J. Aas, “Design quality metrics based on an event-oriented design process model: Theory and example of use in electronic design,” Qual. Eng., vol. 8, no. 4, pp. 537–542, 1996, doi: 10.1080/08982119608904663.
+[17]	R. Cabral and M. Kalinowski, “Investigating the Impact of SOLID Design Principles on Machine Learning Code Understanding,” ACM Int. Conf. Proceeding Ser., pp. 703–705, 2024, doi: 10.1145/3701625.3701695.

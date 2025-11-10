@@ -1,0 +1,45 @@
+.table-responsive {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th,
+.table td {
+    text-align: center;
+}
+
+.btn-custom {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+}
+
+.delete-btn {
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #f44336;
+}
+
+.card-img-top {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .table-responsive {
+        margin-bottom: 20px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 576px) {
+    .table th,
+    .table td {
+        padding: 0.75rem; /* Adjust padding for small screens */
+        font-size: 12px; /* Adjust font size for readability */
+    }
+}
