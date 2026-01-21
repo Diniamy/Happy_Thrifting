@@ -22,7 +22,7 @@ class ProductRepository implements ProductRepositoryInterface
     {
         $this->model = $model;
     }
-
+ 
     public function getAll(): Collection
     {
         return $this->model->with('kategori')->get();

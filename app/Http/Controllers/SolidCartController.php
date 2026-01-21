@@ -12,15 +12,15 @@ use Illuminate\Support\Facades\Auth;
  * SOLID Principles Applied:
  * 
  * Single Responsibility Principle (SRP):
- * - Controller hanya bertanggung jawab untuk HTTP request/response handling
- * - Business logic dipindahkan ke Service classes
- * 
+ * - Controller hanya bertanggung jawab untuk menangani permintaan (request) dan tanggapan (response) HTTP
+ * - Logika bisnis dipindahkan ke Service classes agar lebih terstruktur
+ *  
  * Dependency Inversion Principle (DIP):
- * - Controller bergantung pada Service abstraction, bukan concrete models
- * - Menggunakan dependency injection untuk loose coupling
+ * - Controller bergantung pada Service abstraction, bukan langsung ke model
+ * - Menggunakan dependency injection agar hubungan antar komponen menjadi longgar (loose coupling)
  * 
  * Open/Closed Principle (OCP):
- * - Controller terbuka untuk extension (new methods) tapi tertutup untuk modification
+ * - Controller terbuka untuk penambahan fitur baru, tetapi tertutup untuk modifikasi langsung
  */
 class SolidCartController extends Controller
 {
@@ -35,12 +35,12 @@ class SolidCartController extends Controller
 
     /**
      * Display cart items
-     * Single Responsibility: Only handles HTTP response for cart view
+     * Single Responsibility: Hanya menangani respons HTTP untuk menampilkan tampilan keranjang
      */
     public function view()
     {
         if (!Auth::check()) {
-            return redirect()->route('user.login')->with('error', 'You need to log in to view your cart.');
+            return redirect()->route('user.login')->with('error', 'Silakan login terlebih dahulu untuk melihat keranjang.');
         }
 
         try {
@@ -53,17 +53,17 @@ class SolidCartController extends Controller
 
     /**
      * Add product to cart
-     * Single Responsibility: Only handles HTTP request for adding to cart
+     * Single Responsibility: Hanya menangani permintaan HTTP untuk menambahkan produk ke keranjang
      */
     public function add($id)
     {
         if (!Auth::check()) {
-            return redirect()->route('user.login')->with('error', 'You need to log in to add products to cart.');
+            return redirect()->route('user.login')->with('error', 'Silakan login terlebih dahulu untuk menambahkan produk ke keranjang.');
         }
 
         try {
             $this->cartService->addToCart(Auth::id(), $id, 1);
-            return redirect()->route('user.cart')->with('success', 'Product added to cart!');
+            return redirect()->route('user.cart')->with('success', 'Produk berhasil ditambahkan ke keranjang!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -71,19 +71,19 @@ class SolidCartController extends Controller
 
     /**
      * Buy product directly (without cart)
-     * Single Responsibility: Only handles HTTP request for direct purchase
+     * Single Responsibility: Hanya menangani permintaan HTTP untuk pembelian langsung tanpa masuk keranjang
      */
     public function buyNow(Request $request, $id)
     {
         if (!Auth::check()) {
-            return redirect()->route('user.login')->with('error', 'You need to log in to buy a product.');
+            return redirect()->route('user.login')->with('error', 'Silakan login terlebih dahulu untuk membeli produk.');
         }
 
         $quantity = $request->get('quantity', 1);
 
         // Validate quantity
         if ($quantity < 1) {
-            return redirect()->back()->with('error', 'Quantity must be at least 1.');
+            return redirect()->back()->with('error', 'Jumlah produk minimal 1.');
         }
 
         try {
@@ -96,12 +96,12 @@ class SolidCartController extends Controller
 
     /**
      * Checkout cart items
-     * Single Responsibility: Only handles HTTP request for checkout
+     * Single Responsibility: Hanya menangani permintaan HTTP untuk proses checkout keranjang
      */
     public function checkout(Request $request)
     {
         if (!Auth::check()) {
-            return redirect()->route('user.login')->with('error', 'You need to be logged in to access checkout.');
+            return redirect()->route('user.login')->with('error', 'Silakan login untuk melanjutkan ke proses checkout.');
         }
 
         try {
@@ -120,17 +120,17 @@ class SolidCartController extends Controller
 
     /**
      * Remove item from cart
-     * Single Responsibility: Only handles HTTP request for item removal
+     * Single Responsibility: Hanya menangani permintaan HTTP untuk menghapus produk dari keranjang
      */
     public function delete($id)
     {
         if (!Auth::check()) {
-            return redirect()->route('user.login')->with('error', 'You need to log in to remove items from cart.');
+            return redirect()->route('user.login')->with('error', 'Silakan login untuk menghapus produk dari keranjang.');
         }
 
         try {
             $this->cartService->removeFromCart(Auth::id(), $id);
-            return redirect()->route('user.cart')->with('success_delete', 'Product removed from cart!');
+            return redirect()->route('user.cart')->with('success_delete', 'Produk berhasil dihapus dari keranjang!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -138,12 +138,12 @@ class SolidCartController extends Controller
 
     /**
      * Update cart item quantity
-     * Single Responsibility: Only handles HTTP request for quantity update
+     * Single Responsibility: Hanya menangani permintaan HTTP untuk memperbarui jumlah produk di keranjang
      */
     public function updateQuantity(Request $request, $id)
     {
         if (!Auth::check()) {
-            return redirect()->route('user.login')->with('error', 'You need to log in to update cart.');
+            return redirect()->route('user.login')->with('error', 'Silakan login untuk memperbarui keranjang.');
         }
 
         $request->validate([
@@ -152,7 +152,7 @@ class SolidCartController extends Controller
 
         try {
             $this->cartService->updateQuantity(Auth::id(), $id, $request->quantity);
-            return redirect()->route('user.cart')->with('success', 'Cart updated successfully!');
+            return redirect()->route('user.cart')->with('success', 'Keranjang berhasil diperbarui!');
         } catch (\Exception $e) {
             return redirect()->route('user.cart')->with('error', $e->getMessage());
         }
@@ -160,7 +160,7 @@ class SolidCartController extends Controller
 
     /**
      * Display payment page
-     * Single Responsibility: Only handles HTTP response for payment view
+     * Single Responsibility: Hanya menangani tampilan halaman pembayaran untuk user
      */
     public function payment($orderId)
     {
@@ -170,9 +170,9 @@ class SolidCartController extends Controller
 
         try {
             $order = $this->orderService->getOrder($orderId);
-            
+
             if (!$order || $order->id_user !== Auth::id()) {
-                abort(403, 'Unauthorized access to this order.');
+                abort(403, 'Akses tidak sah terhadap pesanan ini.');
             }
 
             $banks = Bank::where('is_active', true)->get();
@@ -184,7 +184,7 @@ class SolidCartController extends Controller
 
     /**
      * Process payment
-     * Single Responsibility: Only handles HTTP request for payment processing
+     * Single Responsibility: Hanya menangani proses HTTP untuk mengunggah dan memproses bukti pembayaran
      */
     public function processPayment(Request $request, $orderId)
     {
@@ -195,24 +195,25 @@ class SolidCartController extends Controller
 
         try {
             $order = $this->orderService->getOrder($orderId);
-            
+
             if (!$order || $order->id_user !== Auth::id()) {
-                abort(403, 'Unauthorized access to this order.');
+                abort(403, 'Akses tidak sah terhadap pesanan ini.');
             }
 
-            // Upload bukti transfer
+            // Upload payment proof
             $path = $request->file('bukti_transfer')->store('bukti_transfer', 'public');
 
-            // Update order with payment info
+            // Update order data with payment information
             $order->update([
                 'bank_id' => $request->bank_id,
                 'bukti_transfer' => $path,
                 'status' => 'waiting_confirmation'
             ]);
 
-            return redirect()->route('user.history')->with('success', 'Payment proof uploaded successfully! Please wait for admin confirmation.');
+            return redirect()->route('user.history')->with('success', 'Bukti pembayaran berhasil diunggah! Silakan tunggu konfirmasi dari admin.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
 }
+

@@ -36,11 +36,80 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <<link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
-    <!-- Favicon -->
-    <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
-</head>
+
+        <!-- Custom Elegant Style -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background-color: #F8F5F2;
+                font-family: 'Poppins', sans-serif;
+                color: #3B3B3B;
+            }
+
+            .sidebar {
+                background: linear-gradient(180deg, #B08B64, #A47551);
+                color: #fff;
+            }
+
+            .sidebar a {
+                color: #F9F5EF;
+                transition: all 0.3s ease;
+            }
+
+            .sidebar a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+                color: #FFF;
+            }
+
+            .nav-item.active>a {
+                background-color: #FBEED7 !important;
+                color: #A47551 !important;
+                font-weight: 600;
+                border-radius: 0.5rem;
+            }
+
+            .topbar {
+                background-color: #FFF7F0 !important;
+                box-shadow: 0 2px 10px rgba(164, 117, 81, 0.1);
+            }
+
+            .topbar h2 {
+                color: #A47551;
+                font-weight: 600;
+            }
+
+            .card {
+                border-radius: 15px;
+                border: none;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            }
+
+            footer {
+                background-color: #FFF7F0;
+                color: #A47551;
+                font-weight: 500;
+            }
+
+            .btn-primary {
+                background-color: #A47551;
+                border-color: #A47551;
+            }
+
+            .btn-primary:hover {
+                background-color: #8E6443;
+                border-color: #8E6443;
+            }
+
+            .scroll-to-top {
+                background-color: #A47551;
+            }
+
+            .scroll-to-top:hover {
+                background-color: #8E6443;
+            }
+        </style>
 
 <body id="page-top">
 

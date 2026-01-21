@@ -172,10 +172,16 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a href="https://wa.me/6282375062833?text=Halo,%20saya%20mau%20bertanya!" class="btn btn-primary btn-lg hover-lift shadow-custom" data-aos="zoom-in" data-aos-delay="400">
+                <a href="https://wa.me/6285194792017?text=Halo%20Admin%20Happy%20Thrifting,%20saya%20ingin%20bertanya%20tentang%20produk%20Anda."
+                    class="btn btn-primary btn-lg hover-lift shadow-custom"
+                    target="_blank"
+                    data-aos="zoom-in"
+                    data-aos-delay="400">
                     <i class="fab fa-whatsapp me-2"></i>Chat dengan Kami
                 </a>
             </div>
+
+
         </div>
     </section>
 

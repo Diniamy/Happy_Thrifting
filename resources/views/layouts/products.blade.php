@@ -53,55 +53,55 @@
                     <div class="position-relative overflow-hidden">
                         <img src="{{ $product->gambar_url }}" class="card-img-top" alt="{{ $product->nama_produk }}">
                         @if($product->jumlah_produk <= 5)
-                        <div class="position-absolute top-0 end-0 m-2">
+                            <div class="position-absolute top-0 end-0 m-2">
                             <span class="badge bg-warning text-dark">
                                 <i class="fas fa-exclamation-triangle me-1"></i>Stok Terbatas!
                             </span>
-                        </div>
-                        @endif
                     </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title text-dark fw-bold mb-2">{{ $product->nama_produk }}</h5>
-                        <div class="mb-3">
-                            <span class="price-tag">Rp {{ number_format($product->harga_produk, 0, ',', '.') }}</span>
-                        </div>
-                        <p class="text-muted small mb-3">
-                            <i class="fas fa-boxes me-1"></i>Stok: {{ $product->jumlah_produk }} tersedia
-                        </p>
+                    @endif
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title text-dark fw-bold mb-2">{{ $product->nama_produk }}</h5>
+                    <div class="mb-3">
+                        <span class="price-tag">Rp {{ number_format($product->harga_produk, 0, ',', '.') }}</span>
+                    </div>
+                    <p class="text-muted small mb-3">
+                        <i class="fas fa-boxes me-1"></i>Stok: {{ $product->jumlah_produk }} tersedia
+                    </p>
 
-                        @if(Auth::check())
-                        <div class="d-grid gap-2">
-                            <div class="row g-2">
-                                <div class="col-6">
-                                    <form action="{{ route('user.cart.add', ['id' => $product->id]) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-secondary w-100 hover-lift">
-                                            <i class="fas fa-cart-plus me-1"></i>
-                                            <span class="d-none d-sm-inline">Keranjang</span>
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="col-6">
-                                    <button type="button" class="btn btn-primary w-100 hover-lift" onclick="openBuyNowModal({{ $product->id }}, '{{ addslashes($product->nama_produk) }}', {{ $product->harga_produk }}, {{ $product->jumlah_produk }}, '{{ $product->gambar_url }}')">
-                                        <i class="fas fa-bolt me-1"></i>
-                                        <span class="d-none d-sm-inline">Beli</span>
+                    @if(Auth::check())
+                    <div class="d-grid gap-2">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <form action="{{ route('user.cart.add', ['id' => $product->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-secondary w-100 hover-lift">
+                                        <i class="fas fa-cart-plus me-1"></i>
+                                        <span class="d-none d-sm-inline">Keranjang</span>
                                     </button>
-                                </div>
+                                </form>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-primary w-100 hover-lift" onclick="openBuyNowModal({{ $product->id }}, '{{ addslashes($product->nama_produk) }}', {{ $product->harga_produk }}, {{ $product->jumlah_produk }}, '{{ $product->gambar_url }}')">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    <span class="d-none d-sm-inline">Beli</span>
+                                </button>
                             </div>
                         </div>
-                        @else
-                        <div class="d-grid">
-                            <a href="{{ route('user.login') }}" class="btn btn-outline-primary hover-lift">
-                                <i class="fas fa-sign-in-alt me-2"></i>Login untuk Membeli
-                            </a>
-                        </div>
-                        @endif
                     </div>
+                    @else
+                    <div class="d-grid">
+                        <a href="{{ route('user.login') }}" class="btn btn-outline-primary hover-lift">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login untuk Membeli
+                        </a>
+                    </div>
+                    @endif
                 </div>
             </div>
-            @endforeach
         </div>
-        @endif
+        @endforeach
+    </div>
+    @endif
     </div>
 </section>
 
@@ -124,7 +124,7 @@
                     </div>
                     <div class="col-md-7">
                         <h4 id="modal-product-name" class="text-gradient mb-3 fw-bold"></h4>
-                        
+
                         <div class="mb-4 p-3 bg-light rounded-3">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="text-muted">Harga Satuan:</span>
@@ -137,7 +137,7 @@
                                 <span class="badge bg-info"><span id="modal-product-stock"></span> item</span>
                             </div>
                         </div>
-                        
+
                         <div class="mb-4">
                             <label for="quantity" class="form-label fw-bold text-dark">
                                 <i class="fas fa-calculator me-2"></i>Jumlah Pembelian:
@@ -155,7 +155,7 @@
 
                         <div class="p-3 bg-gradient-primary text-white rounded-3 text-center">
                             <h5 class="mb-0">
-                                <i class="fas fa-money-bill-wave me-2"></i>Total Pembayaran: 
+                                <i class="fas fa-money-bill-wave me-2"></i>Total Pembayaran:
                                 <span class="fw-bold">Rp <span id="total-price"></span></span>
                             </h5>
                         </div>
@@ -182,91 +182,91 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-let currentProductId = null;
-let currentProductPrice = 0;
-let currentProductStock = 0;
+    let currentProductId = null;
+    let currentProductPrice = 0;
+    let currentProductStock = 0;
 
-function openBuyNowModal(productId, productName, productPrice, productStock, productImage) {
-    currentProductId = productId;
-    currentProductPrice = productPrice;
-    currentProductStock = productStock;
-    
-    // Set modal content
-    document.getElementById('modal-product-name').textContent = productName;
-    document.getElementById('modal-product-price').textContent = formatNumber(productPrice);
-    document.getElementById('modal-product-stock').textContent = productStock;
-    document.getElementById('modal-product-image').src = productImage;
-    document.getElementById('quantity').max = productStock;
-    document.getElementById('quantity').value = 1;
-    
-    // Update total price
-    updateTotal();
-    
-    // Show modal
-    const modal = new bootstrap.Modal(document.getElementById('buyNowModal'));
-    modal.show();
-}
+    function openBuyNowModal(productId, productName, productPrice, productStock, productImage) {
+        currentProductId = productId;
+        currentProductPrice = productPrice;
+        currentProductStock = productStock;
 
-function increaseQuantity() {
-    const quantityInput = document.getElementById('quantity');
-    let currentValue = parseInt(quantityInput.value);
-    
-    if (currentValue < currentProductStock) {
-        quantityInput.value = currentValue + 1;
+        // Set modal content
+        document.getElementById('modal-product-name').textContent = productName;
+        document.getElementById('modal-product-price').textContent = formatNumber(productPrice);
+        document.getElementById('modal-product-stock').textContent = productStock;
+        document.getElementById('modal-product-image').src = productImage;
+        document.getElementById('quantity').max = productStock;
+        document.getElementById('quantity').value = 1;
+
+        // Update total price
         updateTotal();
+
+        // Show modal
+        const modal = new bootstrap.Modal(document.getElementById('buyNowModal'));
+        modal.show();
     }
-}
 
-function decreaseQuantity() {
-    const quantityInput = document.getElementById('quantity');
-    let currentValue = parseInt(quantityInput.value);
-    
-    if (currentValue > 1) {
-        quantityInput.value = currentValue - 1;
-        updateTotal();
-    }
-}
+    function increaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
 
-function updateTotal() {
-    const quantity = parseInt(document.getElementById('quantity').value);
-    const total = currentProductPrice * quantity;
-    document.getElementById('total-price').textContent = formatNumber(total);
-}
-
-function formatNumber(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-}
-
-function confirmPurchase() {
-    const quantity = parseInt(document.getElementById('quantity').value);
-    
-    if (quantity > currentProductStock) {
-        alert('Jumlah yang dipilih melebihi stok yang tersedia!');
-        return;
-    }
-    
-    if (quantity < 1) {
-        alert('Jumlah minimal adalah 1!');
-        return;
-    }
-    
-    // Redirect to buy now route with quantity parameter
-    window.location.href = `/user/cart/buy-now/${currentProductId}?quantity=${quantity}`;
-}
-
-// Event listener for quantity input change
-document.addEventListener('DOMContentLoaded', function() {
-    const quantityInput = document.getElementById('quantity');
-    if (quantityInput) {
-        quantityInput.addEventListener('input', function() {
-            const value = parseInt(this.value);
-            if (value > currentProductStock) {
-                this.value = currentProductStock;
-            } else if (value < 1) {
-                this.value = 1;
-            }
+        if (currentValue < currentProductStock) {
+            quantityInput.value = currentValue + 1;
             updateTotal();
-        });
+        }
     }
-});
+
+    function decreaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+            updateTotal();
+        }
+    }
+
+    function updateTotal() {
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const total = currentProductPrice * quantity;
+        document.getElementById('total-price').textContent = formatNumber(total);
+    }
+
+    function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    function confirmPurchase() {
+        const quantity = parseInt(document.getElementById('quantity').value);
+
+        if (quantity > currentProductStock) {
+            alert('Jumlah yang dipilih melebihi stok yang tersedia!');
+            return;
+        }
+
+        if (quantity < 1) {
+            alert('Jumlah minimal adalah 1!');
+            return;
+        }
+
+        // Redirect to buy now route with quantity parameter
+        window.location.href = `/user/cart/buy-now/${currentProductId}?quantity=${quantity}`;
+    }
+
+    // Event listener for quantity input change
+    document.addEventListener('DOMContentLoaded', function() {
+        const quantityInput = document.getElementById('quantity');
+        if (quantityInput) {
+            quantityInput.addEventListener('input', function() {
+                const value = parseInt(this.value);
+                if (value > currentProductStock) {
+                    this.value = currentProductStock;
+                } else if (value < 1) {
+                    this.value = 1;
+                }
+                updateTotal();
+            });
+        }
+    });
 </script>

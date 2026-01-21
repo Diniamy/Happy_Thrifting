@@ -28,7 +28,10 @@
                         <td>Rp {{ number_format($product->harga_produk, 0, ',', '.') }}</td>
                         <td>{{ $product->jumlah_produk }}</td>
                         <td>
-                            <img src="{{ $product->gambar_url }}" alt="{{ $product->nama_produk }}" style="width: 100px; height: 80px; object-fit: cover;">
+                            <img src="{{ $product->gambar_url }}"
+                                alt="{{ $product->nama_produk }}"
+                                style="width: 120px; height: auto; object-fit: contain; border-radius: 8px;">
+
                         </td>
                         <td>
                             <a href="#" class="btn btn-warning btn-sm update-button" data-bs-toggle="modal" data-bs-target="#editProductModal-{{ $product->id }}">Edit</a>

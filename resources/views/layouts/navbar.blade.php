@@ -54,13 +54,17 @@
                                 <i class="fas fa-user-circle me-2 text-primary"></i>Profil
                             </a>
                         </li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li>
                             <a class="dropdown-item d-flex align-items-center" href="{{ route('user.history') }}">
                                 <i class="fas fa-history me-2 text-info"></i>Riwayat Pesanan
                             </a>
                         </li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li>
                             <form action="{{ route('user.logout') }}" method="POST" class="d-inline">
                                 @csrf

@@ -849,3 +849,66 @@ footer a:hover {
 .hover-shadow:hover {
     box-shadow: 0 15px 40px var(--shadow-medium);
 }
+/* Animasi naik-turun lembut */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Efek glow lembut di sekitar card */
+@keyframes soft-glow {
+    0% {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        box-shadow: 0 10px 25px rgba(164, 117, 81, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+/* Animasi pada card */
+.features .card:hover,
+.testimonials .card:hover {
+    transform: translateY(-10px) scale(1.03);
+    animation: soft-glow 1.8s ease-in-out infinite;
+    transition: all 0.4s ease;
+}
+
+/* Animasi ikon bulat di atas card */
+.features .card-body .rounded-circle,
+.testimonials .card-body .rounded-circle {
+    transition: all 0.5s ease;
+}
+
+.features .card:hover .rounded-circle,
+.testimonials .card:hover .rounded-circle {
+    background: linear-gradient(135deg, #a47551, #d8b597);
+    animation: float 2.5s ease-in-out infinite;
+}
+
+/* Animasi judul section */
+.section-title {
+    position: relative;
+    display: inline-block;
+    animation: fadeSlideUp 1.5s ease forwards;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

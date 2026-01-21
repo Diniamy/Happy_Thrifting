@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Auth;
  * SOLID Principles Applied:
  * 
  * Single Responsibility Principle (SRP):
- * - Controller hanya bertanggung jawab untuk HTTP request/response handling
- * - Business logic dipindahkan ke OrderService
+ * - Controller hanya bertanggung jawab untuk menangani permintaan dan respons HTTP
+ * - Logika bisnis dipindahkan ke OrderService
  * 
  * Dependency Inversion Principle (DIP):
- * - Controller bergantung pada OrderService abstraction
- * - Menggunakan dependency injection untuk loose coupling
+ * - Controller bergantung pada abstraksi OrderService
+ * - Menggunakan dependency injection untuk mengurangi ketergantungan langsung (loose coupling)
  */
 class SolidOrderController extends Controller
 {
@@ -27,13 +27,13 @@ class SolidOrderController extends Controller
     }
 
     /**
-     * Display user order history
-     * Single Responsibility: Only handles HTTP response for order history
+     * Menampilkan riwayat pesanan pengguna
+     * Single Responsibility: Hanya menangani respons HTTP untuk riwayat pesanan
      */
     public function history()
     {
         if (!Auth::check()) {
-            return redirect()->route('user.login')->with('error', 'You need to log in to view order history.');
+            return redirect()->route('user.login')->with('error', 'Anda harus login untuk melihat riwayat pesanan.');
         }
 
         try {
@@ -45,8 +45,8 @@ class SolidOrderController extends Controller
     }
 
     /**
-     * Display order details for user
-     * Single Responsibility: Only handles HTTP response for order detail
+     * Menampilkan detail pesanan untuk pengguna
+     * Single Responsibility: Hanya menangani respons HTTP untuk detail pesanan
      */
     public function orderDetailUser($id)
     {
@@ -58,7 +58,7 @@ class SolidOrderController extends Controller
             $order = $this->orderService->getOrder($id);
 
             if (!$order || $order->id_user !== Auth::id()) {
-                abort(403, 'Unauthorized access to this order.');
+                abort(403, 'Akses tidak sah ke pesanan ini.');
             }
 
             return view('user.order-detail-user', compact('order'));
@@ -68,8 +68,8 @@ class SolidOrderController extends Controller
     }
 
     /**
-     * Admin: Display all orders
-     * Single Responsibility: Only handles HTTP response for admin orders view
+     * Admin: Menampilkan semua pesanan
+     * Single Responsibility: Hanya menangani respons HTTP untuk tampilan pesanan admin
      */
     public function adminIndex()
     {
@@ -82,8 +82,8 @@ class SolidOrderController extends Controller
     }
 
     /**
-     * Admin: Display order details
-     * Single Responsibility: Only handles HTTP response for admin order detail
+     * Admin: Menampilkan detail pesanan
+     * Single Responsibility: Hanya menangani respons HTTP untuk detail pesanan admin
      */
     public function adminShow($id)
     {
@@ -91,7 +91,7 @@ class SolidOrderController extends Controller
             $order = $this->orderService->getOrder($id);
 
             if (!$order) {
-                abort(404, 'Order not found');
+                abort(404, 'Pesanan tidak ditemukan');
             }
 
             return view('admin.orders.show', compact('order'));
@@ -101,8 +101,8 @@ class SolidOrderController extends Controller
     }
 
     /**
-     * Admin: Update order status
-     * Single Responsibility: Only handles HTTP request for status update
+     * Admin: Memperbarui status pesanan
+     * Single Responsibility: Hanya menangani permintaan HTTP untuk memperbarui status pesanan
      */
     public function updateStatus(Request $request, $id)
     {
@@ -115,26 +115,26 @@ class SolidOrderController extends Controller
             $order = $this->orderService->getOrder($id);
 
             if (!$order) {
-                return redirect()->back()->with('error', 'Order not found!');
+                return redirect()->back()->with('error', 'Pesanan tidak ditemukan!');
             }
 
-            // Update status
+            // Perbarui status pesanan
             $this->orderService->updateOrderStatus($id, $request->status);
 
-            // Update admin notes if provided
+            // Perbarui catatan admin jika diisi
             if ($request->catatan_admin) {
                 $order->update(['catatan_admin' => $request->catatan_admin]);
             }
 
-            return redirect()->back()->with('success', 'Order status updated successfully!');
+            return redirect()->back()->with('success', 'Status pesanan berhasil diperbarui!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
 
     /**
-     * Admin: Get orders by status
-     * Single Responsibility: Only handles HTTP response for filtered orders
+     * Admin: Mendapatkan pesanan berdasarkan status
+     * Single Responsibility: Hanya menangani respons HTTP untuk pesanan berdasarkan status
      */
     public function getByStatus($status)
     {
@@ -147,8 +147,8 @@ class SolidOrderController extends Controller
     }
 
     /**
-     * API: Get order statistics
-     * Single Responsibility: Only handles HTTP response for order statistics
+     * API: Mendapatkan statistik pesanan
+     * Single Responsibility: Hanya menangani respons HTTP untuk statistik pesanan
      */
     public function statistics()
     {
