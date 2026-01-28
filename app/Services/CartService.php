@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Collection;
 /**
  * Single Responsibility Principle (SRP)
  * Service ini hanya bertanggung jawab untuk business logic Cart
+ 
+ * Dependency Inversion Principle (DIP)
+ * CartService (high-level module) tidak bergantung
+ * pada CartRepository (low-level module),
+ * melainkan pada CartRepositoryInterface (abstraksi).
  */
 class CartService
 {

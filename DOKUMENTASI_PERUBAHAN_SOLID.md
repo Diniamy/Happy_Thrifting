@@ -32,8 +32,42 @@ app/
 ```
 
 ### ✅ SESUDAH - Struktur Folder Baru (SOLID)
+app/
+├── Contracts/                              # ISP + DIP (Abstraction Layer)
+│   ├── CartRepositoryInterface.php         # ISP
+│   ├── OrderRepositoryInterface.php        # ISP
+│   ├── ProductRepositoryInterface.php      # ISP (Write operations)
+│   └── ReadProductRepositoryInterface.php  # ISP (Read-only operations)
+│
+├── Http/Controllers/                       # SRP (Presentation Layer)
+│   ├── AuthController.php                  # SRP
+│   ├── CartController.php                  # SRP
+│   ├── ProductController.php               # SRP
+│   └── OrderController.php                 # SRP
+│
+├── Models/                                 # Domain Model (Eloquent)
+│   ├── User.php
+│   ├── Product.php
+│   ├── Cart.php
+│   └── Order.php
+│
+├── Repositories/                           # SRP + OCP + LSP
+│   ├── CartRepository.php                  # SRP
+│   ├── OrderRepository.php                 # SRP
+│   ├── ProductRepository.php               # SRP + LSP
+│   └── CachedProductRepository.php         # OCP + LSP
+│
+├── Services/                               # SRP + DIP (Business Logic)
+│   ├── CartService.php                     # SRP + DIP
+│   ├── OrderService.php                    # SRP + DIP
+│   └── ProductService.php                  # SRP + DIP
+│
+└── Providers/
+    ├── AppServiceProvider.php
+    └── RepositoryServiceProvider.php       # DIP + OCP
 
-````
+
+
 app/
 ├── Contracts/                      # 🆕 Interface Layer (DIP)
 │   ├── CartRepositoryInterface.php

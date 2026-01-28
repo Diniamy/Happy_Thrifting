@@ -3,34 +3,54 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+
+// Interfaces
 use App\Contracts\ProductRepositoryInterface;
+use App\Contracts\ReadProductRepositoryInterface;
 use App\Contracts\OrderRepositoryInterface;
 use App\Contracts\CartRepositoryInterface;
+
+// Implementations
 use App\Repositories\ProductRepository;
+use App\Repositories\CachedProductRepository;
 use App\Repositories\OrderRepository;
 use App\Repositories\CartRepository;
 
 /**
- * Dependency Inversion Principle (DIP)
- * Service Provider untuk binding interface ke concrete implementation
- * Memungkinkan dependency injection dan loose coupling
+ * DIP  : Binding interface ke concrete class
+ * OCP  : Menambah repository cache TANPA mengubah repository lama
  */
 class RepositoryServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     */
     public function register(): void
     {
-        // Bind Repository Interfaces to Concrete Implementations
-        $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
-        $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
-        $this->app->bind(CartRepositoryInterface::class, CartRepository::class);
+        // === PRODUCT ===
+        // Repository utama (CRUD)
+        $this->app->bind(
+            ProductRepositoryInterface::class,
+            ProductRepository::class
+        );
+
+        // Repository read-only (CACHE)
+        // 👉 OCP + LSP
+        $this->app->bind(
+            ReadProductRepositoryInterface::class,
+            CachedProductRepository::class
+        );
+
+        // === ORDER ===
+        $this->app->bind(
+            OrderRepositoryInterface::class,
+            OrderRepository::class
+        );
+
+        // === CART ===
+        $this->app->bind(
+            CartRepositoryInterface::class,
+            CartRepository::class
+        );
     }
 
-    /**
-     * Bootstrap services.
-     */
     public function boot(): void
     {
         //
