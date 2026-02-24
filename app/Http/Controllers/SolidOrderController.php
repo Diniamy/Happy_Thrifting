@@ -23,6 +23,7 @@ class SolidOrderController extends Controller
 
     public function __construct(OrderService $orderService)
     {
+        
         $this->orderService = $orderService;
     }
 
@@ -37,6 +38,7 @@ class SolidOrderController extends Controller
         }
 
         try {
+            
             $orders = $this->orderService->getUserOrders(Auth::id());
             return view('user.history', compact('orders'));
         } catch (\Exception $e) {
@@ -166,3 +168,4 @@ class SolidOrderController extends Controller
         }
     }
 }
+

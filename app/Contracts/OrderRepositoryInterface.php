@@ -6,7 +6,7 @@ use App\Models\Order;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Interface Segregation Principle (ISP)
+ * Interface Segregation Principle (ISP) 
  * Interface khusus untuk Order operations
  */
 interface OrderRepositoryInterface

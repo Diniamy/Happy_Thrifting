@@ -32,73 +32,72 @@ app/
 ```
 
 ### ✅ SESUDAH - Struktur Folder Baru (SOLID)
-app/
-├── Contracts/                              # ISP + DIP (Abstraction Layer)
-│   ├── CartRepositoryInterface.php         # ISP
-│   ├── OrderRepositoryInterface.php        # ISP
-│   ├── ProductRepositoryInterface.php      # ISP (Write operations)
-│   └── ReadProductRepositoryInterface.php  # ISP (Read-only operations)
-│
-├── Http/Controllers/                       # SRP (Presentation Layer)
-│   ├── AuthController.php                  # SRP
-│   ├── CartController.php                  # SRP
-│   ├── ProductController.php               # SRP
-│   └── OrderController.php                 # SRP
-│
-├── Models/                                 # Domain Model (Eloquent)
-│   ├── User.php
-│   ├── Product.php
-│   ├── Cart.php
-│   └── Order.php
-│
-├── Repositories/                           # SRP + OCP + LSP
-│   ├── CartRepository.php                  # SRP
-│   ├── OrderRepository.php                 # SRP
-│   ├── ProductRepository.php               # SRP + LSP
-│   └── CachedProductRepository.php         # OCP + LSP
-│
-├── Services/                               # SRP + DIP (Business Logic)
-│   ├── CartService.php                     # SRP + DIP
-│   ├── OrderService.php                    # SRP + DIP
-│   └── ProductService.php                  # SRP + DIP
-│
-└── Providers/
-    ├── AppServiceProvider.php
-    └── RepositoryServiceProvider.php       # DIP + OCP
-
-
 
 app/
-├── Contracts/                      # 🆕 Interface Layer (DIP)
-│   ├── CartRepositoryInterface.php
-│   ├── OrderRepositoryInterface.php
-│   └── ProductRepositoryInterface.php
+├── Contracts/ # ISP + DIP (Abstraction Layer)
+│ ├── CartRepositoryInterface.php # ISP
+│ ├── OrderRepositoryInterface.php # ISP
+│ ├── ProductRepositoryInterface.php # ISP (Write operations)
+│ └── ReadProductRepositoryInterface.php # ISP (Read-only operations)
 │
-├── Http/Controllers/               # Refactored - Thin Controllers
-│   ├── AuthController.php         (45 baris - HTTP only)
-│   ├── CartController.php         (50 baris - HTTP only)
-│   ├── ProductController.php      (55 baris - HTTP only)
-│   └── OrderController.php        (60 baris - HTTP only)
+├── Http/Controllers/ # SRP (Presentation Layer)
+│ ├── AuthController.php # SRP
+│ ├── SolidCartController.php # SRP
+│ ├── SolidProductController.php # SRP
+│ └── SolidOrderController.php # SRP
 │
-├── Models/                         # Same - Eloquent Models
-│   ├── User.php
-│   ├── Product.php
-│   ├── Cart.php
-│   └── Order.php
+├── Models/ # Domain Model (Eloquent)
+│ ├── User.php
+│ ├── Product.php
+│ ├── Cart.php
+│ └── Order.php
 │
-├── Repositories/                   # 🆕 Data Access Layer (SRP)
-│   ├── CartRepository.php         (70 baris - Data access only)
-│   ├── OrderRepository.php        (80 baris - Data access only)
-│   └── ProductRepository.php      (75 baris - Data access only)
+├── Repositories/ # SRP + OCP + LSP
+│ ├── CartRepository.php # SRP
+│ ├── OrderRepository.php # SRP
+│ ├── ProductRepository.php # SRP + LSP
+│ └── CachedProductRepository.php # OCP + LSP
 │
-├── Services/                       # 🆕 Business Logic Layer (SRP)
-│   ├── CartService.php            (90 baris - Business logic only)
-│   ├── OrderService.php           (120 baris - Business logic only)
-│   └── ProductService.php         (100 baris - Business logic only)
+├── Services/ # SRP + DIP (Business Logic)
+│ ├── CartService.php # SRP + DIP
+│ ├── OrderService.php # SRP + DIP
+│ └── ProductService.php # SRP + DIP
 │
 └── Providers/
-    ├── AppServiceProvider.php
-    └── SolidServiceProvider.php    # 🆕 Dependency Injection (DIP)
+├── AppServiceProvider.php
+└── RepositoryServiceProvider.php # DIP + OCP
+
+app/
+├── Contracts/ # 🆕 Interface Layer (DIP)
+│ ├── CartRepositoryInterface.php
+│ ├── OrderRepositoryInterface.php
+│ └── ProductRepositoryInterface.php
+│
+├── Http/Controllers/ # Refactored - Thin Controllers
+│ ├── AuthController.php (45 baris - HTTP only)
+│ ├── CartController.php (50 baris - HTTP only)
+│ ├── ProductController.php (55 baris - HTTP only)
+│ └── OrderController.php (60 baris - HTTP only)
+│
+├── Models/ # Same - Eloquent Models
+│ ├── User.php
+│ ├── Product.php
+│ ├── Cart.php
+│ └── Order.php
+│
+├── Repositories/ # 🆕 Data Access Layer (SRP)
+│ ├── CartRepository.php (70 baris - Data access only)
+│ ├── OrderRepository.php (80 baris - Data access only)
+│ └── ProductRepository.php (75 baris - Data access only)
+│
+├── Services/ # 🆕 Business Logic Layer (SRP)
+│ ├── CartService.php (90 baris - Business logic only)
+│ ├── OrderService.php (120 baris - Business logic only)
+│ └── ProductService.php (100 baris - Business logic only)
+│
+└── Providers/
+├── AppServiceProvider.php
+└── SolidServiceProvider.php # 🆕 Dependency Injection (DIP)
 
 ---
 
@@ -107,6 +106,7 @@ app/
 ### 1. CARTCONTROLLER - SEBELUM vs SESUDAH
 
 #### ❌ SEBELUM (280 LOC - Melanggar SRP)
+
 ```php
 <?php
 namespace App\Http\Controllers;
@@ -166,7 +166,7 @@ class CartController extends Controller
         // Total 280+ baris kode dalam satu file!
     }
 }
-````
+```
 
 #### ✅ SESUDAH (50 LOC - Mengikuti SRP)
 

@@ -216,4 +216,3 @@ class SolidCartController extends Controller
         }
     }
 }
-
